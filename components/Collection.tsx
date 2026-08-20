@@ -1,0 +1,32 @@
+import { PRODUCTS, TIER_ORDER, TIER_META } from "@/lib/products";
+import { ProductCard } from "./ProductCard";
+
+export function Collection() {
+  return (
+    <section id="coleccion" style={{ padding: "clamp(72px,10vw,130px) 0" }}>
+      <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
+        <div data-reveal style={{ textAlign: "center", maxWidth: 640, margin: "0 auto clamp(44px,6vw,72px)" }}>
+          <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La colección</span>
+          <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(34px,4.6vw,58px)", lineHeight: 1.04, letterSpacing: "-.01em", margin: "14px 0 0" }}>Tres formas de llevar EDEN</h2>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--muted)", margin: "16px 0 0" }}>De la puerta de entrada a la máxima expresión del Oro 18K.</p>
+        </div>
+
+        {TIER_ORDER.map((tier, i) => {
+          const items = PRODUCTS.filter((p) => p.tier === tier);
+          return (
+            <div key={tier} data-reveal style={{ marginBottom: "clamp(52px,7vw,88px)" }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 18, borderBottom: "1px solid var(--line)", paddingBottom: 18, marginBottom: "clamp(24px,3vw,36px)" }}>
+                <span style={{ fontFamily: "var(--serif)", fontSize: "clamp(22px,2.4vw,30px)", color: "var(--gold)", lineHeight: 1 }}>{"0" + (i + 1)}</span>
+                <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(26px,3vw,38px)", lineHeight: 1, margin: 0, letterSpacing: ".02em" }}>{tier}</h3>
+                <span style={{ marginLeft: "auto", fontSize: 13, letterSpacing: ".04em", color: "var(--muted)", textAlign: "right" }}>{TIER_META[tier]}</span>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: "clamp(20px,2.4vw,32px)" }}>
+                {items.map((p) => <ProductCard key={p.id} product={p} />)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}

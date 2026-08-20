@@ -1,0 +1,117 @@
+/* ── EDEN Joyas — tokens + base (portado del diseño aprobado) ── */
+:root {
+  --cream: #faf8f5;
+  --sand: #f4e1d2;
+  --blush: #eac8ca;
+  --sage: #c2c8b8;
+  --ink: #2a2420;
+  --muted: rgba(42, 36, 32, 0.6);
+  --line: rgba(42, 36, 32, 0.14);
+  --gold: #a6803f;
+  --gold-deep: #7c5f2c;
+  --gold-soft: #c8a465;
+  --deep: #382c24;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --body: "Figtree", system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; }
+a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold-deep); }
+::selection { background: rgba(166, 128, 63, 0.22); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+h1, h2, h3, p, figure, blockquote { margin: 0; }
+button { font-family: inherit; }
+
+/* Imagen "washed" — se integra en el fondo cálido */
+.eden-wash img { filter: saturate(0.92) contrast(0.98) brightness(1.02); }
+
+/* Zoom suave de imagen al hover */
+.eden-zoom { overflow: hidden; }
+.eden-zoom img { transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.eden-zoom:hover img { transform: scale(1.06); }
+
+/* Lift de tarjeta */
+.card-lift { transition: transform 0.3s ease; }
+.card-lift:hover { transform: translateY(-4px); }
+
+/* Botones (hover) */
+.btn-deep { transition: background 0.25s, transform 0.25s; }
+.btn-deep:hover { background: var(--gold-deep); }
+.btn-cream { transition: transform 0.25s; }
+.btn-cream:hover { transform: translateY(-2px); }
+.btn-ghost { transition: border-color 0.25s, background 0.25s; }
+.btn-ghost:hover { border-color: var(--ink); background: rgba(42, 36, 32, 0.04); }
+
+/* FAQ */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-plus { transform: rotate(45deg); }
+
+/* Reveal on scroll (progressive enhancement — visible por defecto) */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.85s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal-ready [data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] { opacity: 1 !important; transform: none !important; transition: none; }
+}
+
+@keyframes edenBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+@keyframes edenFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes edenSlide { from { transform: translateX(100%); } to { transform: none; } }
+
+/* WhatsApp flotante */
+.eden-wa {
+  position: fixed; right: 18px; bottom: 18px; z-index: 60;
+  width: 56px; height: 56px; border-radius: 50%; background: #25d366;
+  display: grid; place-content: center;
+  box-shadow: 0 10px 26px -8px rgba(37, 211, 102, 0.7);
+  transition: transform 0.2s;
+}
+.eden-wa:hover { transform: scale(1.06); }
+
+/* Cantidad (stepper) */
+.eden-qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.eden-qty button { width: 38px; height: 38px; border: none; background: transparent; cursor: pointer; font-size: 18px; color: var(--ink); }
+.eden-qty button:hover { background: rgba(42, 36, 32, 0.05); }
+
+/* Carrito (drawer) */
+.eden-drawer-backdrop { position: fixed; inset: 0; z-index: 70; background: rgba(42, 36, 32, 0.5); animation: edenFade 0.3s ease; }
+.eden-drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 71; width: min(430px, 94vw); background: var(--cream); display: flex; flex-direction: column; box-shadow: -24px 0 60px -30px rgba(42, 36, 32, 0.5); animation: edenSlide 0.35s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+/* CTA fijo (mobile) */
+.eden-sticky-cta { display: none; }
+@media (max-width: 820px) {
+  .eden-sticky-cta { display: flex !important; }
+  body { padding-bottom: 76px; }
+  .eden-wa { bottom: 88px; }
+}
+
+/* Responsive de layouts */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr !important; gap: clamp(32px, 7vw, 48px) !important; }
+  .hero-media { order: 2 !important; }
+  .split-grid { grid-template-columns: 1fr !important; }
+  .split-media { order: -1 !important; }
+  .mat-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 820px) {
+  .nav-links { display: none !important; }
+}
+@media (min-width: 821px) {
+  .nav-burger { display: none !important; }
+}
