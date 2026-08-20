@@ -4,6 +4,7 @@ import { TESTIMONIALS, FAQS, IG_POSTS } from "@/lib/products";
 
 export function PermanentBanner() {
   return (
+    // Full-bleed horizontal, sin aspect-ratio fijo (min-height clamp 380–560px). Lifestyle/mood, foco vertical ajustable vía objectPosition.
     <section style={{ position: "relative", minHeight: "clamp(380px,58vw,560px)", display: "grid", alignItems: "end", overflow: "hidden" }}>
       <img src={IMAGES.local1} alt="Manilla EDEN tejida a mano en oro 18k" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", filter: "saturate(.95) brightness(.9)" }} loading="lazy" />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(42,36,32,.1),rgba(42,36,32,.62))" }} />
@@ -52,7 +53,7 @@ export function Instagram() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: "clamp(10px,1.4vw,18px)" }}>
           {IG_POSTS.map((p) => (
             <div key={p.id} className="eden-wash eden-zoom" style={{ borderRadius: 16, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-              <img src={p.img} alt="EDEN Joyas en Instagram" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
+              <img src={p.img} alt="EDEN Joyas en Instagram" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
             </div>
           ))}
         </div>
@@ -63,7 +64,7 @@ export function Instagram() {
 
 export function Faq() {
   return (
-    <section style={{ padding: "0 0 clamp(72px,10vw,130px)" }}>
+    <section id="preguntas-frecuentes" style={{ padding: "0 0 clamp(72px,10vw,130px)" }}>
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <div data-reveal style={{ textAlign: "center", marginBottom: "clamp(32px,4vw,48px)" }}>
           <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>Preguntas frecuentes</span>
@@ -86,6 +87,12 @@ export function Faq() {
   );
 }
 
+const MATCHES = [
+  { tier: "ESSENTIAL", label: "Quiero algo sutil", href: "/#essential" },
+  { tier: "SIGNATURE", label: "Quiero algo con presencia", href: "/#signature" },
+  { tier: "PRIVÉ", label: "Quiero algo extraordinario", href: "/#prive" },
+];
+
 export function FinalCta() {
   return (
     <section style={{ padding: "0 0 clamp(64px,8vw,110px)" }}>
@@ -96,8 +103,13 @@ export function FinalCta() {
           <div style={{ position: "relative" }}>
             <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(34px,5vw,66px)", lineHeight: 1.03, letterSpacing: "-.01em", margin: 0 }}>Encuentra la tuya.</h2>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--muted)", maxWidth: "46ch", margin: "18px auto 0" }}>Oro 18k tejido a mano, listo para enviarse. Elige tu manilla hoy y estrénala esta semana.</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginTop: 34 }}>
-              <Link href="/#coleccion" className="btn-deep" style={{ display: "inline-flex", alignItems: "center", padding: "18px 40px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>Comprar ahora</Link>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14, marginTop: 34, textAlign: "left" }}>
+              {MATCHES.map((m) => (
+                <Link key={m.tier} href={m.href} className="match-option" style={{ display: "flex", flexDirection: "column", gap: 6, padding: "22px 22px", border: "1px solid var(--line)", borderRadius: 20, background: "var(--cream)" }}>
+                  <span style={{ fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase", color: "var(--gold-deep)" }}>{m.tier}</span>
+                  <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 19, color: "var(--ink)" }}>{m.label}</span>
+                </Link>
+              ))}
             </div>
             <p style={{ fontSize: 12.5, letterSpacing: ".05em", color: "var(--muted)", margin: "22px 0 0" }}>Envío asegurado · Garantía del oro 18k · Cambios sin complicaciones</p>
           </div>
@@ -120,8 +132,8 @@ export function Footer() {
           </div>
           <div style={{ display: "flex", gap: "clamp(32px,6vw,80px)", flexWrap: "wrap" }}>
             <FooterCol title="Tienda" links={[["Colección", "/#coleccion"], ["Oro 18k", "/#materiales"], ["Opiniones", "/#opiniones"]]} />
-            <FooterCol title="Ayuda" links={[["Preguntas frecuentes", "#"], ["Envíos y garantía", "#"], ["Guía de tallas", "#"]]} />
-            <FooterCol title="Síguenos" links={[["Instagram", "#"], ["WhatsApp", "#"], ["TikTok", "#"]]} />
+            <FooterCol title="Ayuda" links={[["Preguntas frecuentes", "/#preguntas-frecuentes"], ["Envíos y garantía", "#"], ["Guía de tallas", "#"]]} />
+            <FooterCol title="Síguenos" links={[["Instagram", "#"], ["WhatsApp", "https://wa.me/573000000000"], ["TikTok", "#"]]} />
           </div>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between", marginTop: "clamp(36px,5vw,56px)", paddingTop: 24, borderTop: "1px solid rgba(250,248,245,.16)", fontSize: 12, letterSpacing: ".04em" }}>

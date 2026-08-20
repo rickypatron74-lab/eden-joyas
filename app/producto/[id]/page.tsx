@@ -31,8 +31,25 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   if (!product) notFound();
   const related = PRODUCTS.filter((p) => p.id !== product.id).slice(0, 3);
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.longDesc,
+    image: product.gallery[0],
+    sku: product.id,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "COP",
+      price: product.priceNum,
+      availability: "https://schema.org/InStock",
+      url: `https://edenjoyas.com/producto/${product.id}`,
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <Nav />
       <PromoBar />
       <ProductDetail product={product} related={related} />

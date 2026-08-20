@@ -14,7 +14,7 @@ export function CartDrawer() {
       if (!p) return null;
       return { ...l, product: p, lineTotal: fmt(p.priceNum * l.qty) };
     })
-    .filter(Boolean) as { id: string; qty: number; product: (typeof PRODUCTS)[number]; lineTotal: string }[];
+    .filter(Boolean) as { id: string; qty: number; size?: string; product: (typeof PRODUCTS)[number]; lineTotal: string }[];
 
   return (
     <>
@@ -28,7 +28,7 @@ export function CartDrawer() {
         {cart.count === 0 ? (
           <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", gap: 16, padding: 40 }}>
             <div style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 22, color: "var(--muted)" }}>Tu carrito está vacío</div>
-            <button type="button" onClick={cart.closeCart} className="btn-deep" style={{ padding: "15px 30px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer" }}>Ver la colección</button>
+            <Link href="/#coleccion" onClick={cart.closeCart} className="btn-deep" style={{ display: "inline-block", padding: "15px 30px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase" }}>Ver la colección</Link>
           </div>
         ) : (
           <>
@@ -49,22 +49,22 @@ export function CartDrawer() {
               )}
 
               {resolved.map((l) => (
-                <div key={l.id} style={{ display: "grid", gridTemplateColumns: "74px 1fr auto", gap: 16, alignItems: "center", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
+                <div key={l.id + (l.size ?? "")} style={{ display: "grid", gridTemplateColumns: "74px 1fr auto", gap: 16, alignItems: "center", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
                   <Link href={`/producto/${l.id}`} onClick={cart.closeCart} style={{ borderRadius: 14, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-                    <img src={l.product.gallery[0]} alt={l.product.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={l.product.gallery[0]} alt={l.product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                   </Link>
                   <div>
                     <Link href={`/producto/${l.id}`} onClick={cart.closeCart} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)" }}>{l.product.name}</Link>
-                    <div style={{ fontSize: 12, color: "var(--muted)", margin: "2px 0 10px" }}>{l.product.tier}</div>
+                    <div style={{ fontSize: 12, color: "var(--muted)", margin: "2px 0 10px" }}>{l.product.tier}{l.size ? ` · Talla ${l.size}` : ""}</div>
                     <div className="eden-qty">
-                      <button type="button" onClick={() => cart.changeQty(l.id, -1)} aria-label="Menos">−</button>
+                      <button type="button" onClick={() => cart.changeQty(l.id, -1, l.size)} aria-label="Menos">−</button>
                       <span style={{ minWidth: 30, textAlign: "center", fontSize: 14, fontWeight: 600 }}>{l.qty}</span>
-                      <button type="button" onClick={() => cart.changeQty(l.id, 1)} aria-label="Más">+</button>
+                      <button type="button" onClick={() => cart.changeQty(l.id, 1, l.size)} aria-label="Más">+</button>
                     </div>
                   </div>
                   <div style={{ textAlign: "right", display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 10 }}>
                     <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 17 }}>{l.lineTotal}</span>
-                    <button type="button" onClick={() => cart.remove(l.id)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--muted)", fontSize: 12, textDecoration: "underline" }}>Quitar</button>
+                    <button type="button" onClick={() => cart.remove(l.id, l.size)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--muted)", fontSize: 12, textDecoration: "underline" }}>Quitar</button>
                   </div>
                 </div>
               ))}

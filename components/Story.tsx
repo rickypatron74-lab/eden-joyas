@@ -6,8 +6,9 @@ export function Historia() {
     <section id="historia" style={{ padding: "clamp(20px,4vw,48px) 0 clamp(72px,10vw,130px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <div data-reveal className="split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.05fr", gap: "clamp(40px,6vw,88px)", alignItems: "center" }}>
+          {/* Editorial 5:6 — foto de marca/proceso (artesanía), no un plano de producto. */}
           <figure className="split-media eden-wash" style={{ margin: 0, borderRadius: "26px 26px 200px 200px", overflow: "hidden", aspectRatio: "5/6", background: "var(--blush)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)" }}>
-            <img src={IMAGES.extB} alt="Manillas EDEN tejidas a mano en oro 18k" style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
+            <img src={IMAGES.extB} alt="Manillas EDEN tejidas a mano en oro 18k" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
           </figure>
           <div>
             <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>Nuestra historia</span>
@@ -34,6 +35,10 @@ export function Materiales() {
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <div data-reveal className="mat-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(36px,5vw,72px)", alignItems: "start" }}>
           <div>
+            <details className="oro18k-details" style={{ marginBottom: 18 }}>
+              <summary className="oro18k-badge">18K</summary>
+              <p className="oro18k-info">{MATS[0].d}</p>
+            </details>
             <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold-deep)", fontWeight: 600 }}>Materiales</span>
             <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(32px,4.4vw,56px)", lineHeight: 1.05, letterSpacing: "-.01em", margin: "16px 0 0", color: "var(--ink)" }}>Oro de 18 quilates, tejido hilo por hilo.</h2>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--muted)", margin: "24px 0 0", maxWidth: "44ch" }}>Nada de baños ni chapados. Elegimos balines de oro 18k y los tejemos a mano, uno a uno, para que tu manilla brille igual dentro de diez años.</p>

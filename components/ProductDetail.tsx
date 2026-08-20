@@ -18,13 +18,14 @@ export function ProductDetail({ product, related }: { product: Product; related:
 
         <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(36px,5vw,72px)", alignItems: "start" }}>
           <div>
+            {/* Imagen principal PDP — 1:1 fijo. product.gallery[0..2]: 1) plano general, 2) detalle/textura, 3) puesta (lifestyle). */}
             <div className="eden-wash" style={{ borderRadius: 26, overflow: "hidden", aspectRatio: "1", background: "var(--sand)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)" }}>
-              <img src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
             </div>
             <div style={{ display: "flex", gap: 12, marginTop: 14 }}>
               {product.gallery.map((src, i) => (
                 <button key={i} type="button" onClick={() => setGi(i)} style={{ flex: 1, aspectRatio: "1", borderRadius: 14, overflow: "hidden", border: `2px solid ${i === gi ? "var(--deep)" : "var(--line)"}`, background: "var(--sand)", cursor: "pointer", padding: 0 }}>
-                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                 </button>
               ))}
             </div>
@@ -64,7 +65,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
                 <span style={{ minWidth: 34, textAlign: "center", fontSize: 16, fontWeight: 600 }}>{qty}</span>
                 <button type="button" onClick={() => setQty((q) => q + 1)} aria-label="Más">+</button>
               </div>
-              <button type="button" onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, minWidth: 200, padding: "17px 34px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
+              <button type="button" onClick={() => cart.add(product.id, qty, size)} className="btn-deep" style={{ flex: 1, minWidth: 200, padding: "17px 34px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 14, marginTop: 30, paddingTop: 26, borderTop: "1px solid var(--line)", fontSize: 13, color: "var(--muted)" }}>
@@ -82,7 +83,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
             {related.map((r) => (
               <Link key={r.id} href={`/producto/${r.id}`} style={{ display: "flex", flexDirection: "column", color: "var(--ink)" }}>
                 <div className="eden-zoom" style={{ borderRadius: 22, overflow: "hidden", aspectRatio: "4/5", background: "var(--sand)" }}>
-                  <img src={r.gallery[0]} alt={r.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
+                  <img src={r.gallery[0]} alt={r.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
                 </div>
                 <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 21, margin: "14px 0 0" }}>{r.name}</h3>
                 <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)", marginTop: 6 }}>{fmt(r.priceNum)}</span>
@@ -90,6 +91,14 @@ export function ProductDetail({ product, related }: { product: Product; related:
             ))}
           </div>
         </div>
+      </div>
+
+      <div className="eden-sticky-cta" style={{ position: "fixed", left: 0, right: 0, bottom: 0, zIndex: 55, alignItems: "center", gap: 12, padding: "12px 16px calc(12px + env(safe-area-inset-bottom))", background: "rgba(250,248,245,.94)", backdropFilter: "blur(14px)", borderTop: "1px solid var(--line)" }}>
+        <div style={{ lineHeight: 1.1, minWidth: 0 }}>
+          <div style={{ fontSize: 11, color: "var(--muted)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{product.name}</div>
+          <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 20, color: "var(--ink)" }}>{fmt(product.priceNum)}</div>
+        </div>
+        <button type="button" onClick={() => cart.add(product.id, qty, size)} className="btn-deep" style={{ flex: 1, textAlign: "center", padding: 15, background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
       </div>
     </section>
   );

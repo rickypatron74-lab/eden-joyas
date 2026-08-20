@@ -20,9 +20,10 @@ export function Iconics() {
         </div>
 
         {items.map((it, i) => (
-          <div key={it.id} data-reveal className="split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(36px,5vw,80px)", alignItems: "center", marginBottom: "clamp(48px,7vw,96px)" }}>
+          <div key={it.id} data-reveal data-reveal-delay={i * 100} className="split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(36px,5vw,80px)", alignItems: "center", marginBottom: "clamp(48px,7vw,96px)" }}>
+            {/* Editorial 4:5 — idealmente una toma dedicada (no la de catálogo), con foco en el dije de Oro 18K. */}
             <figure className="split-media eden-wash eden-zoom" style={{ margin: 0, order: i % 2 === 1 ? 2 : 0, borderRadius: 28, overflow: "hidden", aspectRatio: "4/5", background: "var(--sand)", boxShadow: "0 34px 70px -34px rgba(42,36,32,.42)" }}>
-              <img src={it.gallery[0]} alt={`${it.name} — pieza icónica EDEN con dije de oro 18k`} style={{ width: "100%", height: "100%", objectFit: "cover" }} loading="lazy" />
+              <img src={it.gallery[0]} alt={`${it.name} — pieza icónica EDEN con dije de oro 18k`} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
             </figure>
             <div>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: "var(--gold-deep)", background: "rgba(166,128,63,.12)", padding: "6px 13px", borderRadius: 999 }}>✦ Dije Oro 18K</span>
