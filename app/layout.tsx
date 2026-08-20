@@ -1,7 +1,24 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Figtree } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
 import { RevealController } from "@/components/RevealController";
+
+// Autohospedadas por Next.js (sin request externo a fonts.googleapis.com,
+// sin bloquear el render). Mismas familias y pesos que antes.
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-serif",
+});
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-body",
+});
 
 const SITE = "https://edenjoyas.com"; // TODO: dominio real
 
@@ -14,6 +31,7 @@ export const metadata: Metadata = {
   description:
     "Manillas tejidas a mano en Oro 18K. EDEN convierte el oro en algo cotidiano: piezas de moda contemporánea, hechas a mano en Colombia.",
   keywords: ["manillas oro 18k", "joyas", "moda", "tejidas a mano", "EDEN Joyas"],
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_CO",
@@ -29,15 +47,7 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Figtree:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="es" className={`${cormorant.variable} ${figtree.variable}`}>
       <body>
         <CartProvider>
           <RevealController />

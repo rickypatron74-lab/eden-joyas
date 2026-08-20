@@ -10,17 +10,23 @@
 // object-fit:cover + object-position explícito: cualquier foto que respete
 // el ratio indicado se puede reemplazar sin tocar layout ni componentes.
 //
-//  HERO (Hero.tsx)              full-bleed, sin ratio fijo (min-height
-//                                clamp 560–840px, ancho 100%). Horizontal,
-//                                mín. 2400×1600px. Foco centro/derecha —
-//                                el texto y el degradado oscuro ocupan la
-//                                izquierda.
+//  HERO (HERO_IMAGE/HERO_IMAGE_MOBILE)  full-bleed, sin ratio fijo
+//                                (min-height clamp 560–840px, ancho 100%).
+//                                Horizontal en desktop, mín. 2400×1600px.
+//                                Vertical/más cerrada en mobile permitida
+//                                (usa <picture>, foto propia por breakpoint).
+//                                Foco configurable por imagen (ver `position`
+//                                abajo) — el texto y el degradado ocupan la
+//                                franja inferior.
 //  COLECCIÓN (ProductCard)      4:5 retrato. Catálogo, fondo neutro,
-//                                pieza centrada. 1 foto por producto.
+//                                pieza centrada. gallery[0] por producto.
 //  PDP (ProductDetail)          principal 1:1 + 3 miniaturas 1:1
 //                                (product.gallery ya tiene 3 slots por
 //                                producto): 1) plano general 2) detalle/
 //                                textura del tejido 3) puesta (lifestyle).
+//                                El hover desktop de la card usa gallery[1]
+//                                como segunda imagen (misma fuente de datos,
+//                                sin inventar assets nuevos).
 //  AURA / SIEMPRE (Iconics)     4:5 retrato, editorial/inmersiva, foco en
 //                                el dije de Oro 18K. Toma dedicada por
 //                                pieza, distinta de su foto de catálogo.
@@ -28,14 +34,24 @@
 //                                redondeadas. Marca/proceso (artesanía),
 //                                no un plano de producto.
 //  COLECCIÓN PERMANENTE         full-bleed horizontal, sin ratio fijo
-//  (Sections.tsx)                (min-height clamp 380–560px). Lifestyle/
-//                                mood, foco vertical ajustable.
+//  (BANNER_IMAGE)                (min-height clamp 380–560px). Lifestyle/
+//                                mood, foco configurable (ver `position`).
 //  INSTAGRAM (IG_POSTS)         1:1 cuadrado × 6. Estilo UGC/lifestyle.
 //  OPEN GRAPH (metadata)        recomendado 1200×630 (1.91:1) dedicado —
 //                                hoy usa manilla-1.jpg cuadrada (736×736),
 //                                que Facebook/WhatsApp/X recortan.
 //
 //  Formato de archivo objetivo: WebP (fallback JPG), sRGB, calidad ~80.
+//
+// CONVENCIÓN PARA FOTOGRAFÍA DE PRODUCTO (cuando llegue la definitiva)
+// `lib/products.ts` ya tiene, por producto, un array `gallery` de 3 slots
+// fijos — no requiere tocar ningún componente, solo reemplazar las URLs:
+//   gallery[0] → producto-XX          (plano general, usado en catálogo)
+//   gallery[1] → producto-XX-detail   (detalle/textura del tejido)
+//   gallery[2] → producto-XX-wear     (puesta / lifestyle)
+// Si se agrega una cuarta foto por producto (producto-XX-detail-2), ampliar
+// el array `gallery` de ese producto en lib/products.ts — el carrusel de
+// miniaturas de ProductDetail ya itera sobre `gallery` sin límite fijo.
 // ─────────────────────────────────────────────────────────────
 export const IMAGES = {
   local1: "/images/manilla-1.jpg",
@@ -44,5 +60,18 @@ export const IMAGES = {
   extB: "https://www.virzua.com/cdn/shop/files/Pulsera_3_Oros_Tejida_Balines_en_18k.webp?width=1600",
 } as const;
 
-// Imagen del hero (candidata a LCP: se marca priority en el componente).
-export const HERO_IMAGE = IMAGES.extA;
+export interface ArtDirectedImage {
+  /** URL de la imagen. */
+  src: string;
+  /** object-position CSS — foco configurable sin tocar el componente. */
+  position: string;
+}
+
+// Hero: una entrada por breakpoint. Hoy ambas apuntan al mismo placeholder;
+// al llegar la fotografía definitiva, reemplazar `src` (y `position` si el
+// encuadre lo requiere) de cada una por separado — Hero.tsx no cambia.
+export const HERO_IMAGE: ArtDirectedImage = { src: IMAGES.extA, position: "center" };
+export const HERO_IMAGE_MOBILE: ArtDirectedImage = { src: IMAGES.extA, position: "center" };
+
+// Colección permanente (banner horizontal de Sections.tsx).
+export const BANNER_IMAGE: ArtDirectedImage = { src: IMAGES.local1, position: "center 40%" };

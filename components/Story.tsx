@@ -13,8 +13,7 @@ export function Historia() {
           <div>
             <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>Nuestra historia</span>
             <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(32px,4.4vw,54px)", lineHeight: 1.06, letterSpacing: "-.01em", margin: "16px 0 0" }}>Lujo que sí te puedes poner.</h2>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--muted)", margin: "24px 0 0", maxWidth: "48ch" }}>EDEN nació de una idea simple: vestir bien y llevar oro de verdad no debería ser un privilegio. Somos una marca de moda que trabaja el oro 18k con precios honestos, para que el lujo forme parte de tu día a día.</p>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--muted)", margin: "16px 0 0", maxWidth: "48ch" }}>Cada manilla se teje a mano, balín por balín. Sin máquinas, sin prisas — solo piezas hechas para durar y para quererse.</p>
+            <p style={{ fontSize: 17, lineHeight: 1.7, color: "var(--muted)", margin: "24px 0 0", maxWidth: "44ch" }}>Vestir bien y llevar oro de verdad no debería ser un privilegio. Cada manilla se teje a mano, balín por balín — sin máquinas, sin prisas. Hecha para durar. Hecha para quererse.</p>
             <Link href="/#materiales" style={{ display: "inline-flex", alignItems: "center", gap: 10, marginTop: 28, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--ink)", borderBottom: "1px solid var(--gold)", paddingBottom: 4 }}>Conoce el oro 18k →</Link>
           </div>
         </div>

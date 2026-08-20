@@ -17,12 +17,12 @@ export function Collection() {
           const items = PRODUCTS.filter((p) => p.tier === tier);
           return (
             <div key={tier} id={TIER_ANCHOR[tier]} data-reveal style={{ marginBottom: "clamp(52px,7vw,88px)", scrollMarginTop: 90 }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 18, borderBottom: "1px solid var(--line)", paddingBottom: 18, marginBottom: "clamp(24px,3vw,36px)" }}>
-                <span style={{ fontFamily: "var(--serif)", fontSize: "clamp(22px,2.4vw,30px)", color: "var(--gold)", lineHeight: 1 }}>{"0" + (i + 1)}</span>
-                <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(26px,3vw,38px)", lineHeight: 1, margin: 0, letterSpacing: ".02em" }}>{tier}</h3>
-                <span style={{ marginLeft: "auto", fontSize: 13, letterSpacing: ".04em", color: "var(--muted)", textAlign: "right" }}>{TIER_META[tier]}</span>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 20, borderBottom: "1px solid var(--line)", paddingBottom: 22, marginBottom: "clamp(28px,3.6vw,44px)" }}>
+                <span style={{ fontFamily: "var(--serif)", fontSize: "clamp(26px,2.8vw,36px)", color: "var(--gold)", lineHeight: 1 }}>{"0" + (i + 1)}</span>
+                <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(30px,3.6vw,46px)", lineHeight: 1, margin: 0, letterSpacing: ".02em" }}>{tier}</h3>
+                <span style={{ marginLeft: "auto", fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "clamp(14px,1.4vw,17px)", color: "var(--muted)", textAlign: "right" }}>{TIER_META[tier]}</span>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: "clamp(20px,2.4vw,32px)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "clamp(24px,2.8vw,36px)" }}>
                 {items.map((p, idx) => (
                   <div key={p.id} data-reveal data-reveal-delay={idx * 70}>
                     <ProductCard product={p} />

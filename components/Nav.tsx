@@ -17,10 +17,10 @@ export function Nav() {
           <span style={{ fontSize: 9.5, letterSpacing: ".52em", paddingLeft: ".52em", color: "var(--muted)", marginTop: 3 }}>J O Y A S</span>
         </Link>
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 30, fontSize: 13, letterSpacing: ".1em", textTransform: "uppercase" }}>
-          <Link href="/#coleccion" style={{ color: "var(--ink)" }}>Colección</Link>
-          <Link href="/#historia" style={{ color: "var(--ink)" }}>Historia</Link>
-          <Link href="/#materiales" style={{ color: "var(--ink)" }}>Materiales</Link>
-          <Link href="/#opiniones" style={{ color: "var(--ink)" }}>Opiniones</Link>
+          <Link href="/#coleccion" style={{ color: "var(--ink)", padding: "10px 0" }}>Colección</Link>
+          <Link href="/#historia" style={{ color: "var(--ink)", padding: "10px 0" }}>Historia</Link>
+          <Link href="/#materiales" style={{ color: "var(--ink)", padding: "10px 0" }}>Materiales</Link>
+          <Link href="/#opiniones" style={{ color: "var(--ink)", padding: "10px 0" }}>Opiniones</Link>
         </div>
         <button type="button" onClick={cart.openCart} aria-label="Carrito" style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, background: "transparent", border: "1px solid var(--line)", borderRadius: 999, cursor: "pointer", color: "var(--ink)" }}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { IMAGES } from "@/lib/images";
+import { BANNER_IMAGE } from "@/lib/images";
 import { TESTIMONIALS, FAQS, IG_POSTS } from "@/lib/products";
 
 export function PermanentBanner() {
   return (
-    // Full-bleed horizontal, sin aspect-ratio fijo (min-height clamp 380–560px). Lifestyle/mood, foco vertical ajustable vía objectPosition.
+    // Full-bleed horizontal, sin aspect-ratio fijo (min-height clamp 380–560px). Lifestyle/mood, foco configurable desde lib/images.ts (BANNER_IMAGE).
     <section style={{ position: "relative", minHeight: "clamp(380px,58vw,560px)", display: "grid", alignItems: "end", overflow: "hidden" }}>
-      <img src={IMAGES.local1} alt="Manilla EDEN tejida a mano en oro 18k" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 40%", filter: "saturate(.95) brightness(.9)" }} loading="lazy" />
+      <img src={BANNER_IMAGE.src} alt="Manilla EDEN tejida a mano en oro 18k" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: BANNER_IMAGE.position, filter: "saturate(.95) brightness(.9)" }} loading="lazy" />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(42,36,32,.1),rgba(42,36,32,.62))" }} />
       <div style={{ position: "relative", maxWidth: 1180, width: "100%", margin: "0 auto", padding: "clamp(36px,6vw,72px) clamp(20px,5vw,64px)" }}>
         <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--cream)", opacity: 0.85, fontWeight: 600 }}>Colección permanente</span>
@@ -103,11 +103,12 @@ export function FinalCta() {
           <div style={{ position: "relative" }}>
             <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(34px,5vw,66px)", lineHeight: 1.03, letterSpacing: "-.01em", margin: 0 }}>Encuentra la tuya.</h2>
             <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--muted)", maxWidth: "46ch", margin: "18px auto 0" }}>Oro 18k tejido a mano, listo para enviarse. Elige tu manilla hoy y estrénala esta semana.</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14, marginTop: 34, textAlign: "left" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 16, marginTop: 36, textAlign: "left" }}>
               {MATCHES.map((m) => (
-                <Link key={m.tier} href={m.href} className="match-option" style={{ display: "flex", flexDirection: "column", gap: 6, padding: "22px 22px", border: "1px solid var(--line)", borderRadius: 20, background: "var(--cream)" }}>
-                  <span style={{ fontSize: 11, letterSpacing: ".14em", textTransform: "uppercase", color: "var(--gold-deep)" }}>{m.tier}</span>
-                  <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 19, color: "var(--ink)" }}>{m.label}</span>
+                <Link key={m.tier} href={m.href} className="match-option" style={{ display: "flex", flexDirection: "column", gap: 10, padding: "28px 24px", border: "1px solid var(--line)", borderRadius: 22, background: "var(--cream)" }}>
+                  <span style={{ fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: "var(--gold-deep)", fontWeight: 600 }}>{m.tier}</span>
+                  <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 22, lineHeight: 1.15, color: "var(--ink)" }}>{m.label}</span>
+                  <span style={{ fontSize: 12, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--gold)", marginTop: 4 }}>Ver piezas →</span>
                 </Link>
               ))}
             </div>
@@ -147,10 +148,10 @@ export function Footer() {
 
 function FooterCol({ title, links }: { title: string; links: [string, string][] }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 12, fontSize: 14 }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 14 }}>
       <span style={{ fontSize: 11, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--gold-soft)", marginBottom: 2 }}>{title}</span>
       {links.map(([label, href]) => (
-        <Link key={label} href={href} style={{ color: "rgba(250,248,245,.7)" }}>{label}</Link>
+        <Link key={label} href={href} style={{ color: "rgba(250,248,245,.7)", padding: "4px 0" }}>{label}</Link>
       ))}
     </div>
   );

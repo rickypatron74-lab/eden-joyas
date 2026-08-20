@@ -18,6 +18,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
   return {
     title: p.name,
     description: `${p.name} — ${p.longDesc} ${fmt(p.priceNum)}.`,
+    alternates: { canonical: `/producto/${p.id}` },
     openGraph: {
       title: `${p.name} · EDEN Joyas`,
       description: p.longDesc,
