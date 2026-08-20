@@ -14,11 +14,11 @@ export function ProductCard({ product }: { product: Product }) {
         )}
       </Link>
       <Link href={`/producto/${product.id}`} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 23, lineHeight: 1.1, color: "var(--ink)", margin: "16px 0 0" }}>{product.name}</Link>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginTop: 10 }}>
-        <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 20, color: "var(--ink)" }}>{fmt(product.priceNum)}</span>
-        <Link href={`/producto/${product.id}`} className="btn-deep" style={{ display: "inline-flex", alignItems: "center", padding: "11px 20px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 11.5, letterSpacing: ".12em", textTransform: "uppercase" }}>Ver pieza</Link>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginTop: 8 }}>
+        <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 21, color: "var(--ink)" }}>{fmt(product.priceNum)}</span>
+        <span style={{ fontSize: 11.5, color: "var(--gold-deep)" }}>o {cuotaFor(product.priceNum)}</span>
       </div>
-      <span style={{ fontSize: 11, color: "var(--gold-deep)", marginTop: 5 }}>o {cuotaFor(product.priceNum)}</span>
+      <Link href={`/producto/${product.id}`} className="btn-deep" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", marginTop: 16, padding: "16px 20px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>Ver pieza</Link>
     </div>
   );
 }
