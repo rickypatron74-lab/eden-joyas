@@ -6,12 +6,11 @@ import { useCart } from "./CartProvider";
 import { WishlistButton } from "./WishlistButton";
 import { ProductReviews } from "./ProductReviews";
 import { RECENTLY_VIEWED_KEY } from "./RecentlyViewed";
-import { SIZES, fmt, cuotaFor, type Product } from "@/lib/products";
+import { fmt, cuotaFor, type Product } from "@/lib/products";
 
 export function ProductDetail({ product, related }: { product: Product; related: Product[] }) {
   const cart = useCart();
   const [gi, setGi] = useState(0);
-  const [size, setSize] = useState<string>("M · 17 cm");
   const [qty, setQty] = useState(1);
   const [zoomOpen, setZoomOpen] = useState(false);
 
@@ -68,25 +67,13 @@ export function ProductDetail({ product, related }: { product: Product; related:
             <p style={{ fontSize: 13.5, color: "var(--gold-deep)", margin: "8px 0 0" }}>o {cuotaFor(product.priceNum)} con Sistecrédito</p>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--muted)", margin: "22px 0 0", maxWidth: "46ch" }}>{product.longDesc}</p>
 
-            <div style={{ marginTop: 26 }}>
-              <div style={{ fontSize: 12, letterSpacing: ".14em", textTransform: "uppercase", color: "var(--ink)", marginBottom: 12 }}>Talla (contorno de muñeca)</div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-                {SIZES.map((s) => {
-                  const active = s === size;
-                  return (
-                    <button key={s} type="button" onClick={() => setSize(s)} style={{ padding: "12px 20px", borderRadius: 999, border: `1px solid ${active ? "var(--deep)" : "var(--line)"}`, background: active ? "var(--deep)" : "transparent", color: active ? "var(--cream)" : "var(--ink)", fontSize: 13, cursor: "pointer", transition: "all .2s" }}>{s}</button>
-                  );
-                })}
-              </div>
-            </div>
-
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16, marginTop: 28 }}>
               <div className="eden-qty">
                 <button type="button" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Menos">−</button>
                 <span style={{ minWidth: 34, textAlign: "center", fontSize: 16, fontWeight: 600 }}>{qty}</span>
                 <button type="button" onClick={() => setQty((q) => q + 1)} aria-label="Más">+</button>
               </div>
-              <button type="button" onClick={() => cart.add(product.id, qty, size)} className="btn-deep" style={{ flex: 1, minWidth: 200, padding: "17px 34px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
+              <button type="button" onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, minWidth: 200, padding: "17px 34px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 14, marginTop: 30, paddingTop: 26, borderTop: "1px solid var(--line)", fontSize: 13, color: "var(--muted)" }}>
@@ -121,7 +108,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
           <div style={{ fontSize: 11, color: "var(--muted)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{product.name}</div>
           <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 20, color: "var(--ink)" }}>{fmt(product.priceNum)}</div>
         </div>
-        <button type="button" onClick={() => cart.add(product.id, qty, size)} className="btn-deep" style={{ flex: 1, textAlign: "center", padding: 15, background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
+        <button type="button" onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, textAlign: "center", padding: 15, background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
       </div>
 
       {zoomOpen && (

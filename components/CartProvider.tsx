@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { PRODUCTS, FREE_SHIP, fmt } from "@/lib/products";
 
-interface CartLine { id: string; qty: number; size?: string; }
+interface CartLine { id: string; qty: number; }
 interface CartCtx {
   lines: CartLine[];
   count: number;
@@ -15,9 +15,9 @@ interface CartCtx {
   open: boolean;
   openCart: () => void;
   closeCart: () => void;
-  add: (id: string, qty?: number, size?: string) => void;
-  changeQty: (id: string, delta: number, size?: string) => void;
-  remove: (id: string, size?: string) => void;
+  add: (id: string, qty?: number) => void;
+  changeQty: (id: string, delta: number) => void;
+  remove: (id: string) => void;
 }
 
 const Ctx = createContext<CartCtx | null>(null);
@@ -39,29 +39,29 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try { localStorage.setItem(KEY, JSON.stringify(next)); } catch {}
   }, []);
 
-  const add = useCallback((id: string, qty = 1, size?: string) => {
+  const add = useCallback((id: string, qty = 1) => {
     setLines((prev) => {
       const next = prev.slice();
-      const line = next.find((l) => l.id === id && l.size === size);
-      if (line) line.qty += qty; else next.push({ id, qty, size });
+      const line = next.find((l) => l.id === id);
+      if (line) line.qty += qty; else next.push({ id, qty });
       try { localStorage.setItem(KEY, JSON.stringify(next)); } catch {}
       return next;
     });
     setOpen(true);
   }, []);
 
-  const changeQty = useCallback((id: string, delta: number, size?: string) => {
+  const changeQty = useCallback((id: string, delta: number) => {
     setLines((prev) => {
       const next = prev
-        .map((l) => (l.id === id && l.size === size ? { ...l, qty: l.qty + delta } : l))
+        .map((l) => (l.id === id ? { ...l, qty: l.qty + delta } : l))
         .filter((l) => l.qty > 0);
       try { localStorage.setItem(KEY, JSON.stringify(next)); } catch {}
       return next;
     });
   }, []);
 
-  const remove = useCallback((id: string, size?: string) => {
-    persist(lines.filter((l) => !(l.id === id && l.size === size)));
+  const remove = useCallback((id: string) => {
+    persist(lines.filter((l) => l.id !== id));
   }, [lines, persist]);
 
   const value = useMemo<CartCtx>(() => {

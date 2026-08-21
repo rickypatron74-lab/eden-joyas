@@ -140,7 +140,7 @@ export function Footer() {
           </div>
           <div style={{ display: "flex", gap: "clamp(32px,6vw,80px)", flexWrap: "wrap" }}>
             <FooterCol title="Tienda" links={[["Colección", "/#coleccion"], ["Oro 18k", "/#materiales"], ["Opiniones", "/#opiniones"]]} />
-            <FooterCol title="Ayuda" links={[["Preguntas frecuentes", "/#preguntas-frecuentes"], ["Envíos y garantía", "#"], ["Guía de tallas", "#"]]} />
+            <FooterCol title="Ayuda" links={[["Preguntas frecuentes", "/#preguntas-frecuentes"], ["Envíos y garantía", "#"]]} />
             <FooterCol title="Síguenos" links={[["Instagram", "https://instagram.com/edenjoyas.co"], ["WhatsApp", "https://wa.me/573000000000"], ["TikTok", "#"]]} />
           </div>
         </div>

@@ -20,7 +20,6 @@ export interface Product {
   reviews?: { name: string; quote: string }[]; // reseñas reales de clientas — vacío hasta tener contenido real
 }
 
-export const SIZES = ["S · 15 cm", "M · 17 cm", "L · 19 cm"] as const;
 export const FREE_SHIP = 150000;
 
 const { local1: U, extA: A, extB: B } = IMAGES;
