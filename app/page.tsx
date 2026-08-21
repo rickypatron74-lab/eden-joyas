@@ -6,6 +6,7 @@ import { Historia, Materiales } from "@/components/Story";
 import { Craft } from "@/components/Craft";
 import { PermanentBanner, Opiniones, Instagram, Faq, FinalCta, Footer } from "@/components/Sections";
 import { CartDrawer } from "@/components/CartDrawer";
+import { RecentlyViewed } from "@/components/RecentlyViewed";
 import { StickyCta, WhatsApp, InstagramFloat } from "@/components/Chrome";
 import { FAQS } from "@/lib/products";
 
@@ -36,6 +37,7 @@ export default function HomePage() {
       <Opiniones />
       <Instagram />
       <Faq />
+      <RecentlyViewed />
       <FinalCta />
       <Footer />
       <InstagramFloat />

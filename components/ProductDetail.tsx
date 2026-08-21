@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
+import { RECENTLY_VIEWED_KEY } from "./RecentlyViewed";
 import { SIZES, fmt, cuotaFor, type Product } from "@/lib/products";
 
 export function ProductDetail({ product, related }: { product: Product; related: Product[] }) {
@@ -10,6 +11,15 @@ export function ProductDetail({ product, related }: { product: Product; related:
   const [gi, setGi] = useState(0);
   const [size, setSize] = useState<string>("M · 17 cm");
   const [qty, setQty] = useState(1);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(RECENTLY_VIEWED_KEY);
+      const ids: string[] = raw ? JSON.parse(raw) : [];
+      const next = [product.id, ...ids.filter((id) => id !== product.id)].slice(0, 6);
+      localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(next));
+    } catch {}
+  }, [product.id]);
 
   return (
     <section style={{ padding: "clamp(24px,4vw,44px) 0 clamp(64px,9vw,110px)" }}>

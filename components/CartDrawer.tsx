@@ -29,9 +29,30 @@ export function CartDrawer() {
         </div>
 
         {cart.count === 0 ? (
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", gap: 16, padding: 40 }}>
-            <div style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 22, color: "var(--muted)" }}>Tu carrito está vacío</div>
-            <Link href="/#coleccion" onClick={cart.closeCart} className="btn-deep" style={{ display: "inline-block", padding: "15px 30px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase" }}>Ver la colección</Link>
+          <div style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column", padding: "40px clamp(20px,4vw,28px)" }}>
+            <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, marginBottom: 36 }}>
+              <div style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 22, color: "var(--muted)" }}>Tu carrito está vacío</div>
+              <Link href="/#coleccion" onClick={cart.closeCart} className="btn-deep" style={{ display: "inline-block", padding: "15px 30px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase" }}>Ver la colección</Link>
+            </div>
+            {suggestions.length > 0 && (
+              <div>
+                <div style={{ fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 14, textAlign: "center" }}>Para empezar</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                  {suggestions.map((p) => (
+                    <div key={p.id} style={{ display: "grid", gridTemplateColumns: "56px 1fr auto", gap: 12, alignItems: "center" }}>
+                      <Link href={`/producto/${p.id}`} onClick={cart.closeCart} style={{ borderRadius: 10, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
+                        <img src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                      </Link>
+                      <div>
+                        <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 15, color: "var(--ink)" }}>{p.name}</div>
+                        <div style={{ fontSize: 13, color: "var(--muted)" }}>{fmt(p.priceNum)}</div>
+                      </div>
+                      <button type="button" onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "transparent", border: "1px solid var(--line)", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink)", cursor: "pointer" }}>Agregar</button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <>
