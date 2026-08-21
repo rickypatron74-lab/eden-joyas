@@ -17,7 +17,7 @@ export function Hero() {
         <span className="hero-in hero-in-1" style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: 12, letterSpacing: ".3em", textTransform: "uppercase", color: "var(--cream)", fontWeight: 600 }}>
           <span style={{ width: 26, height: 1, background: "var(--gold-soft)" }} />EDEN Joyas
         </span>
-        <h1 className="hero-in hero-in-2" style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(40px,6.5vw,84px)", lineHeight: 1.03, letterSpacing: "-.02em", margin: "14px 0 0", color: "var(--cream)", maxWidth: "18ch" }}>El lujo de llevarlo.</h1>
+        <h1 className="hero-in hero-in-2" style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(40px,6.5vw,84px)", lineHeight: 1.03, letterSpacing: "-.02em", margin: "14px 0 0", color: "var(--cream)", maxWidth: "18ch" }}>La libertad de llevarlo.</h1>
         <div className="hero-in hero-in-3" style={{ marginTop: 30 }}>
           <Link href="/#coleccion" className="btn-cream" style={{ display: "inline-flex", alignItems: "center", padding: "18px 40px", background: "var(--cream)", color: "var(--ink)", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>Descubrir colección</Link>
         </div>
@@ -31,8 +31,13 @@ export function Manifesto() {
   return (
     <section style={{ padding: "clamp(80px,11vw,160px) 0", background: "var(--cream)" }}>
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)", textAlign: "center" }}>
-        <span data-reveal style={{ display: "inline-block", fontSize: 12, letterSpacing: ".28em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>El lujo de llevarlo</span>
+        <span data-reveal style={{ display: "inline-block", fontSize: 12, letterSpacing: ".28em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La libertad de llevarlo</span>
         <p data-reveal data-reveal-delay="140" style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(28px,4.4vw,50px)", lineHeight: 1.22, letterSpacing: "-.01em", margin: "26px 0 0", color: "var(--ink)", textWrap: "balance" }}>EDEN convierte el Oro 18K en algo cotidiano. Piezas tejidas a mano, pensadas para ser tuyas y no quitártelas nunca.</p>
+        <div data-reveal data-reveal-delay="240" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14, marginTop: 34, paddingTop: 28, borderTop: "1px solid var(--line)", fontSize: 13.5, color: "var(--muted)", textAlign: "left" }}>
+          <span>✦ No hace falta una boda para llevar oro.</span>
+          <span>✦ No se compra por gramos, se elige por diseño.</span>
+          <span>✦ Cuesta menos de lo que imaginas — desde $150.000.</span>
+        </div>
       </div>
     </section>
   );
@@ -41,7 +46,7 @@ export function Manifesto() {
 export function PromoBar() {
   return (
     <div style={{ background: "var(--sand)", color: "var(--ink)", textAlign: "center", fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", padding: "8px 16px", borderBottom: "1px solid var(--line)" }}>
-      Envío gratis desde $150.000 · Certificado de autenticidad en cada pieza
+      Oro 18k real desde $150.000 · Envío gratis · Certificado de autenticidad
     </div>
   );
 }
