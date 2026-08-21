@@ -67,11 +67,14 @@ export interface ArtDirectedImage {
   position: string;
 }
 
-// Hero: una entrada por breakpoint. Hoy ambas apuntan al mismo placeholder;
+// Hero: una entrada por breakpoint. Hoy ambas apuntan al mismo placeholder
+// (en resolución elevada, ?width=2400, para verse nítido en pantallas grandes
+// y de alta densidad — object-fit:cover nunca distorsiona, solo recorta) —
 // al llegar la fotografía definitiva, reemplazar `src` (y `position` si el
 // encuadre lo requiere) de cada una por separado — Hero.tsx no cambia.
-export const HERO_IMAGE: ArtDirectedImage = { src: IMAGES.extA, position: "center" };
-export const HERO_IMAGE_MOBILE: ArtDirectedImage = { src: IMAGES.extA, position: "center" };
+const HERO_SRC_HD = IMAGES.extA.replace("width=1600", "width=2400");
+export const HERO_IMAGE: ArtDirectedImage = { src: HERO_SRC_HD, position: "center" };
+export const HERO_IMAGE_MOBILE: ArtDirectedImage = { src: HERO_SRC_HD, position: "center" };
 
 // Colección permanente (banner horizontal de Sections.tsx).
 export const BANNER_IMAGE: ArtDirectedImage = { src: IMAGES.local1, position: "center 40%" };

@@ -155,6 +155,13 @@ details[open] .faq-plus { transform: rotate(45deg); }
 /* Transición suave entre Hero y Manifiesto */
 .hero-edge { position: absolute; left: 0; right: 0; bottom: 0; height: clamp(48px, 8vw, 100px); background: linear-gradient(180deg, rgba(56, 44, 36, 0) 0%, var(--cream) 100%); pointer-events: none; z-index: 1; }
 
+/* Zoom lento (Ken Burns) — transform puro, no distorsiona ni afecta layout */
+.hero-img { transform: scale(1.08); animation: edenHeroZoom 22s ease-in-out infinite alternate; will-change: transform; }
+@keyframes edenHeroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-img { animation: none; transform: none; }
+}
+
 /* ── Artesanía: HILO → NUDO → BALÍN → EDEN ── */
 .craft-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 32px); }
 .craft-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }

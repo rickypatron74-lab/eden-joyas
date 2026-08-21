@@ -9,7 +9,7 @@ export function Hero() {
       {/* Imagen del hero — protagonista absoluta. Full-bleed, sin aspect-ratio fijo: cubre cualquier foto editorial horizontal o vertical sin tocar layout. <picture> permite una foto y un foco distintos en mobile (art direction) editables desde lib/images.ts. */}
       <picture>
         <source media="(max-width: 820px)" srcSet={HERO_IMAGE_MOBILE.src} />
-        <img src={HERO_IMAGE.src} alt="Manilla EDEN tejida a mano en oro 18k" fetchPriority="high" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: HERO_IMAGE.position }} />
+        <img src={HERO_IMAGE.src} alt="Manilla EDEN tejida a mano en oro 18k" fetchPriority="high" className="hero-img" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: HERO_IMAGE.position }} />
       </picture>
       {/* Degradado solo en el tercio inferior — libera el resto de la imagen para que respire */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(42,36,32,0) 42%,rgba(42,36,32,.68) 100%)" }} />
