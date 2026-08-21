@@ -15,6 +15,18 @@ export function StickyCta() {
   );
 }
 
+export function InstagramFloat() {
+  return (
+    <a className="eden-ig" href="https://instagram.com/edenjoyas.co" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.2" cy="6.8" r="0.6" fill="#fff" stroke="none" />
+      </svg>
+    </a>
+  );
+}
+
 export function WhatsApp() {
   return (
     <a className="eden-wa" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">

@@ -4,7 +4,7 @@ import { Nav } from "@/components/Nav";
 import { PromoBar } from "@/components/Hero";
 import { Footer } from "@/components/Sections";
 import { CartDrawer } from "@/components/CartDrawer";
-import { WhatsApp } from "@/components/Chrome";
+import { WhatsApp, InstagramFloat } from "@/components/Chrome";
 import { ProductDetail } from "@/components/ProductDetail";
 import { PRODUCTS, getProduct, fmt } from "@/lib/products";
 
@@ -55,6 +55,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       <PromoBar />
       <ProductDetail product={product} related={related} />
       <Footer />
+      <InstagramFloat />
       <WhatsApp />
       <CartDrawer />
     </>

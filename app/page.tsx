@@ -6,7 +6,7 @@ import { Historia, Materiales } from "@/components/Story";
 import { Craft } from "@/components/Craft";
 import { PermanentBanner, Opiniones, Instagram, Faq, FinalCta, Footer } from "@/components/Sections";
 import { CartDrawer } from "@/components/CartDrawer";
-import { StickyCta, WhatsApp } from "@/components/Chrome";
+import { StickyCta, WhatsApp, InstagramFloat } from "@/components/Chrome";
 import { FAQS } from "@/lib/products";
 
 const faqSchema = {
@@ -38,6 +38,7 @@ export default function HomePage() {
       <Faq />
       <FinalCta />
       <Footer />
+      <InstagramFloat />
       <WhatsApp />
       <StickyCta />
       <CartDrawer />
