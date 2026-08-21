@@ -45,10 +45,10 @@ export function Instagram() {
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: 16, marginBottom: 28 }}>
           <div>
-            <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>@edenjoyas</span>
+            <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>@edenjoyas.co</span>
             <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(30px,4vw,48px)", lineHeight: 1.05, margin: "12px 0 0" }}>Síguenos en Instagram</h2>
           </div>
-          <a href="https://instagram.com/edenjoyas" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--ink)", borderBottom: "1px solid var(--gold)", paddingBottom: 4 }}>
+          <a href="https://instagram.com/edenjoyas.co" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--ink)", borderBottom: "1px solid var(--gold)", paddingBottom: 4 }}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <rect x="3" y="3" width="18" height="18" rx="5" />
               <circle cx="12" cy="12" r="4" />
@@ -141,7 +141,7 @@ export function Footer() {
           <div style={{ display: "flex", gap: "clamp(32px,6vw,80px)", flexWrap: "wrap" }}>
             <FooterCol title="Tienda" links={[["Colección", "/#coleccion"], ["Oro 18k", "/#materiales"], ["Opiniones", "/#opiniones"]]} />
             <FooterCol title="Ayuda" links={[["Preguntas frecuentes", "/#preguntas-frecuentes"], ["Envíos y garantía", "#"], ["Guía de tallas", "#"]]} />
-            <FooterCol title="Síguenos" links={[["Instagram", "https://instagram.com/edenjoyas"], ["WhatsApp", "https://wa.me/573000000000"], ["TikTok", "#"]]} />
+            <FooterCol title="Síguenos" links={[["Instagram", "https://instagram.com/edenjoyas.co"], ["WhatsApp", "https://wa.me/573000000000"], ["TikTok", "#"]]} />
           </div>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between", marginTop: "clamp(36px,5vw,56px)", paddingTop: 24, borderTop: "1px solid rgba(250,248,245,.16)", fontSize: 12, letterSpacing: ".04em" }}>
