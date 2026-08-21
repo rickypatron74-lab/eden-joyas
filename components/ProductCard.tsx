@@ -7,7 +7,7 @@ export function ProductCard({ product }: { product: Product }) {
   const secondImage = product.gallery[1];
   return (
     <div className="card-lift" style={{ display: "flex", flexDirection: "column" }}>
-      <Link href={`/producto/${product.id}`} className="card-hover-swap" style={{ position: "relative", borderRadius: 22, overflow: "hidden", aspectRatio: "4/5", background: "var(--sand)", display: "block" }}>
+      <Link href={`/producto/${product.id}`} className="card-hover-swap" style={{ position: "relative", borderRadius: 22, overflow: "hidden", aspectRatio: "3/4", background: "var(--sand)", display: "block" }}>
         <img src={product.gallery[0]} alt={`${product.name} — manilla EDEN en oro 18k`} className="img-primary" loading="lazy" />
         {secondImage && <img src={secondImage} alt="" className="img-secondary" loading="lazy" aria-hidden="true" />}
         {product.special && (

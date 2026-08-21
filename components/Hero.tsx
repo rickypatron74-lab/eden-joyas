@@ -32,12 +32,10 @@ export function Manifesto() {
     <section style={{ padding: "clamp(80px,11vw,160px) 0", background: "var(--cream)" }}>
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)", textAlign: "center" }}>
         <span data-reveal style={{ display: "inline-block", fontSize: 12, letterSpacing: ".28em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La libertad de llevarlo</span>
-        <p data-reveal data-reveal-delay="140" style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(28px,4.4vw,50px)", lineHeight: 1.22, letterSpacing: "-.01em", margin: "26px 0 0", color: "var(--ink)", textWrap: "balance" }}>EDEN convierte el Oro 18K en algo cotidiano. Piezas tejidas a mano, pensadas para ser tuyas y no quitártelas nunca.</p>
-        <div data-reveal data-reveal-delay="240" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 14, marginTop: 34, paddingTop: 28, borderTop: "1px solid var(--line)", fontSize: 13.5, color: "var(--muted)", textAlign: "left" }}>
-          <span>✦ No hace falta una boda para llevar oro.</span>
-          <span>✦ No se compra por gramos, se elige por diseño.</span>
-          <span>✦ Cuesta menos de lo que imaginas — desde $150.000.</span>
-        </div>
+        <p data-reveal data-reveal-delay="140" style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(30px,5vw,56px)", lineHeight: 1.1, letterSpacing: "-.015em", margin: "26px 0 0", color: "var(--ink)", textWrap: "balance" }}>El oro que se usa. No el que se guarda.</p>
+        <p data-reveal data-reveal-delay="240" style={{ marginTop: 30, fontSize: 14.5, color: "var(--muted)", letterSpacing: ".01em" }}>
+          Sin boda ni herencia · Sin vender por gramos · Desde $150.000
+        </p>
       </div>
     </section>
   );

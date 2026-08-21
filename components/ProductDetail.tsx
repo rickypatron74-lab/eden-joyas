@@ -36,7 +36,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <Link href="/#coleccion" style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--muted)", fontSize: 13, letterSpacing: ".06em", textTransform: "uppercase", padding: "0 0 clamp(24px,3vw,36px)" }}>← Volver a la colección</Link>
 
-        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: "clamp(36px,5vw,72px)", alignItems: "start" }}>
+        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.7fr 1fr", gap: "clamp(36px,5vw,72px)", alignItems: "start" }}>
           <div>
             {/* Imagen principal PDP — 1:1 fijo. product.gallery[0..2]: 1) plano general, 2) detalle/textura, 3) puesta (lifestyle). Click para ampliar (zoom). */}
             <div className="eden-wash" style={{ position: "relative", borderRadius: 26, overflow: "hidden", aspectRatio: "1", background: "var(--sand)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)", cursor: "zoom-in" }} onClick={() => setZoomOpen(true)}>

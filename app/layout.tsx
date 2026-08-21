@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Figtree } from "next/font/google";
+import { Fraunces, Figtree } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
 import { WishlistProvider } from "@/components/WishlistProvider";
@@ -7,9 +7,9 @@ import { RevealController } from "@/components/RevealController";
 
 // Autohospedadas por Next.js (sin request externo a fonts.googleapis.com,
 // sin bloquear el render). Mismas familias y pesos que antes.
-const cormorant = Cormorant_Garamond({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-serif",
@@ -48,7 +48,7 @@ export const viewport = { width: "device-width", initialScale: 1, themeColor: "#
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${cormorant.variable} ${figtree.variable}`}>
+    <html lang="es" className={`${fraunces.variable} ${figtree.variable}`}>
       <body>
         <CartProvider>
           <WishlistProvider>

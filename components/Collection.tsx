@@ -22,7 +22,7 @@ export function Collection() {
                 <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(30px,3.6vw,46px)", lineHeight: 1, margin: 0, letterSpacing: ".02em" }}>{tier}</h3>
                 <span style={{ marginLeft: "auto", fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "clamp(14px,1.4vw,17px)", color: "var(--muted)", textAlign: "right" }}>{TIER_META[tier]}</span>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "clamp(28px,3.2vw,40px)" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))", gap: "clamp(28px,3.2vw,40px)" }}>
                 {items.map((p, idx) => (
                   <div key={p.id} data-reveal data-reveal-delay={idx * 70}>
                     <ProductCard product={p} />
