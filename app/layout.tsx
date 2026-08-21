@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Figtree } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "@/components/CartProvider";
+import { WishlistProvider } from "@/components/WishlistProvider";
 import { RevealController } from "@/components/RevealController";
 
 // Autohospedadas por Next.js (sin request externo a fonts.googleapis.com,
@@ -50,8 +51,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es" className={`${cormorant.variable} ${figtree.variable}`}>
       <body>
         <CartProvider>
-          <RevealController />
-          {children}
+          <WishlistProvider>
+            <RevealController />
+            {children}
+          </WishlistProvider>
         </CartProvider>
       </body>
     </html>

@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "./CartProvider";
+import { useWishlist } from "./WishlistProvider";
 
 export function Nav() {
   const cart = useCart();
+  const wishlist = useWishlist();
   const [menuOpen, setMenuOpen] = useState(false);
   const close = () => setMenuOpen(false);
 
@@ -22,6 +24,12 @@ export function Nav() {
           <Link href="/#materiales" style={{ color: "var(--ink)", padding: "10px 0" }}>Materiales</Link>
           <Link href="/#opiniones" style={{ color: "var(--ink)", padding: "10px 0" }}>Opiniones</Link>
         </div>
+        <button type="button" onClick={wishlist.openWishlist} aria-label="Favoritos" style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, background: "transparent", border: "1px solid var(--line)", borderRadius: 999, cursor: "pointer", color: "var(--ink)" }}>
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.8 4.6a5 5 0 0 0-7.1 0L12 6.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 20.3l8.8-8.6a5 5 0 0 0 0-7.1z" /></svg>
+          {wishlist.count > 0 && (
+            <span style={{ position: "absolute", top: -4, right: -4, minWidth: 19, height: 19, padding: "0 5px", background: "var(--gold-deep)", color: "var(--cream)", borderRadius: 999, fontSize: 11, fontWeight: 600, display: "grid", placeContent: "center" }}>{wishlist.count}</span>
+          )}
+        </button>
         <button type="button" onClick={cart.openCart} aria-label="Carrito" style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, background: "transparent", border: "1px solid var(--line)", borderRadius: 999, cursor: "pointer", color: "var(--ink)" }}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
           {cart.count > 0 && (

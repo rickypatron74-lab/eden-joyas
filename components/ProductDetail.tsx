@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
+import { WishlistButton } from "./WishlistButton";
 import { RECENTLY_VIEWED_KEY } from "./RecentlyViewed";
 import { SIZES, fmt, cuotaFor, type Product } from "@/lib/products";
 
@@ -11,6 +12,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
   const [gi, setGi] = useState(0);
   const [size, setSize] = useState<string>("M · 17 cm");
   const [qty, setQty] = useState(1);
+  const [zoomOpen, setZoomOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -21,6 +23,13 @@ export function ProductDetail({ product, related }: { product: Product; related:
     } catch {}
   }, [product.id]);
 
+  useEffect(() => {
+    if (!zoomOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setZoomOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomOpen]);
+
   return (
     <section style={{ padding: "clamp(24px,4vw,44px) 0 clamp(64px,9vw,110px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
@@ -28,9 +37,10 @@ export function ProductDetail({ product, related }: { product: Product; related:
 
         <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: "clamp(36px,5vw,72px)", alignItems: "start" }}>
           <div>
-            {/* Imagen principal PDP — 1:1 fijo. product.gallery[0..2]: 1) plano general, 2) detalle/textura, 3) puesta (lifestyle). */}
-            <div className="eden-wash" style={{ borderRadius: 26, overflow: "hidden", aspectRatio: "1", background: "var(--sand)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)" }}>
+            {/* Imagen principal PDP — 1:1 fijo. product.gallery[0..2]: 1) plano general, 2) detalle/textura, 3) puesta (lifestyle). Click para ampliar (zoom). */}
+            <div className="eden-wash" style={{ position: "relative", borderRadius: 26, overflow: "hidden", aspectRatio: "1", background: "var(--sand)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)", cursor: "zoom-in" }} onClick={() => setZoomOpen(true)}>
               <img src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+              <WishlistButton id={product.id} style={{ position: "absolute", top: 14, right: 14 }} />
             </div>
             <div style={{ display: "flex", gap: 12, marginTop: 14 }}>
               {product.gallery.map((src, i) => (
@@ -110,6 +120,13 @@ export function ProductDetail({ product, related }: { product: Product; related:
         </div>
         <button type="button" onClick={() => cart.add(product.id, qty, size)} className="btn-deep" style={{ flex: 1, textAlign: "center", padding: 15, background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
       </div>
+
+      {zoomOpen && (
+        <div onClick={() => setZoomOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 80, background: "rgba(42,36,32,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, cursor: "zoom-out" }}>
+          <img src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ maxWidth: "92vw", maxHeight: "88vh", objectFit: "contain", borderRadius: 8 }} />
+          <button type="button" onClick={() => setZoomOpen(false)} aria-label="Cerrar" style={{ position: "absolute", top: 20, right: 20, width: 44, height: 44, borderRadius: 999, border: "1px solid rgba(250,248,245,.4)", background: "rgba(250,248,245,.1)", color: "var(--cream)", fontSize: 18, cursor: "pointer" }}>✕</button>
+        </div>
+      )}
     </section>
   );
 }

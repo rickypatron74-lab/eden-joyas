@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Product } from "@/lib/products";
 import { fmt, cuotaFor } from "@/lib/products";
+import { WishlistButton } from "./WishlistButton";
 
 export function ProductCard({ product }: { product: Product }) {
   const secondImage = product.gallery[1];
@@ -12,6 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
         {product.special && (
           <span style={{ position: "absolute", top: 12, left: 12, background: "var(--deep)", color: "var(--gold-soft)", fontSize: 10, letterSpacing: ".12em", textTransform: "uppercase", padding: "6px 12px", borderRadius: 999 }}>✦ Dije Oro 18K</span>
         )}
+        <WishlistButton id={product.id} style={{ position: "absolute", top: 10, right: 10 }} />
       </Link>
       <Link href={`/producto/${product.id}`} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 23, lineHeight: 1.1, color: "var(--ink)", margin: "16px 0 0" }}>{product.name}</Link>
       <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginTop: 8 }}>
