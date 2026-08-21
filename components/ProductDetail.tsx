@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
 import { WishlistButton } from "./WishlistButton";
+import { ProductReviews } from "./ProductReviews";
 import { RECENTLY_VIEWED_KEY } from "./RecentlyViewed";
 import { SIZES, fmt, cuotaFor, type Product } from "@/lib/products";
 
@@ -96,6 +97,8 @@ export function ProductDetail({ product, related }: { product: Product; related:
             </div>
           </div>
         </div>
+
+        <ProductReviews product={product} />
 
         <div style={{ marginTop: "clamp(64px,9vw,110px)" }}>
           <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(28px,3.6vw,44px)", lineHeight: 1.05, margin: "0 0 clamp(28px,4vw,44px)" }}>También te puede gustar</h2>

@@ -17,6 +17,7 @@ export interface Product {
   gallery: string[];
   special?: boolean; // pieza icónica con dije de Oro 18K
   dije?: boolean;
+  reviews?: { name: string; quote: string }[]; // reseñas reales de clientas — vacío hasta tener contenido real
 }
 
 export const SIZES = ["S · 15 cm", "M · 17 cm", "L · 19 cm"] as const;
