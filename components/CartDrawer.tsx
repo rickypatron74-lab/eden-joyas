@@ -16,6 +16,9 @@ export function CartDrawer() {
     })
     .filter(Boolean) as { id: string; qty: number; size?: string; product: (typeof PRODUCTS)[number]; lineTotal: string }[];
 
+  const cartIds = new Set(cart.lines.map((l) => l.id));
+  const suggestions = PRODUCTS.filter((p) => !cartIds.has(p.id)).slice(0, 3);
+
   return (
     <>
       <div className="eden-drawer-backdrop" onClick={cart.closeCart} />
@@ -68,6 +71,26 @@ export function CartDrawer() {
                   </div>
                 </div>
               ))}
+
+              {suggestions.length > 0 && (
+                <div style={{ marginTop: 20, paddingTop: 18 }}>
+                  <div style={{ fontSize: 12, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 14 }}>También te puede gustar</div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                    {suggestions.map((p) => (
+                      <div key={p.id} style={{ display: "grid", gridTemplateColumns: "56px 1fr auto", gap: 12, alignItems: "center" }}>
+                        <Link href={`/producto/${p.id}`} onClick={cart.closeCart} style={{ borderRadius: 10, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
+                          <img src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                        </Link>
+                        <div>
+                          <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 15, color: "var(--ink)" }}>{p.name}</div>
+                          <div style={{ fontSize: 13, color: "var(--muted)" }}>{fmt(p.priceNum)}</div>
+                        </div>
+                        <button type="button" onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "transparent", border: "1px solid var(--line)", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink)", cursor: "pointer" }}>Agregar</button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div style={{ padding: "20px clamp(20px,4vw,28px) calc(22px + env(safe-area-inset-bottom))", borderTop: "1px solid var(--line)", background: "var(--cream)" }}>
