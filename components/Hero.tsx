@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HERO_IMAGE } from "@/lib/images";
+import { IMAGES } from "@/lib/images";
 
 export function Hero() {
   return (
@@ -11,17 +11,16 @@ export function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
-        poster={HERO_IMAGE.src}
+        preload="metadata"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
       >
         <source src="/video/hero.mp4" type="video/mp4" />
       </video>
       <img
-        src={HERO_IMAGE.src}
+        src={IMAGES.local1}
         alt="Manilla EDEN tejida a mano en oro 18k"
         className="hero-poster-fallback"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: HERO_IMAGE.position }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
       />
       {/* Degradado solo en el tercio inferior — libera el resto de la imagen para que respire */}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(42,36,32,0) 42%,rgba(42,36,32,.68) 100%)" }} />
