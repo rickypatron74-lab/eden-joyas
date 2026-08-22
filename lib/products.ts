@@ -20,7 +20,8 @@ export interface Product {
   reviews?: { name: string; quote: string }[]; // reseñas reales de clientas — vacío hasta tener contenido real
 }
 
-export const FREE_SHIP = 150000;
+export const FREE_SHIP = 250000;
+export const SHIPPING_COST = 18000;
 
 const { local1: U, local2: A, local3: B, local4: C, local5: D, local6: E } = IMAGES;
 

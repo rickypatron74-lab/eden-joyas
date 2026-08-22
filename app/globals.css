@@ -163,6 +163,13 @@ details[open] .faq-plus { transform: rotate(45deg); }
   .hero-poster-fallback { display: block; }
 }
 
+/* Transición entre pasos del checkout */
+.checkout-step-in { animation: edenStepIn .4s ease both; }
+@keyframes edenStepIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .checkout-step-in { animation: none; }
+}
+
 /* ── Artesanía: HILO → NUDO → BALÍN → EDEN ── */
 .craft-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 32px); }
 .craft-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }

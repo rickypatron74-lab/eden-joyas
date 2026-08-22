@@ -53,7 +53,7 @@ export function Manifesto() {
 export function PromoBar() {
   return (
     <div style={{ background: "var(--sand)", color: "var(--ink)", textAlign: "center", fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", padding: "8px 16px", borderBottom: "1px solid var(--line)" }}>
-      Oro 18k real desde $150.000 · Envío gratis · Certificado de autenticidad
+      Oro 18k real desde $150.000 · Envío gratis desde $250.000 · Certificado de autenticidad
     </div>
   );
 }
