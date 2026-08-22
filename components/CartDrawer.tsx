@@ -19,6 +19,13 @@ export function CartDrawer() {
   const cartIds = new Set(cart.lines.map((l) => l.id));
   const suggestions = PRODUCTS.filter((p) => !cartIds.has(p.id)).slice(0, 3);
 
+  const orderText = resolved.length
+    ? "Hola, quiero confirmar mi pedido:\n" +
+      resolved.map((l) => `• ${l.product.name} x${l.qty} — ${l.lineTotal}`).join("\n") +
+      `\n\nSubtotal: ${cart.subtotalText}`
+    : "";
+  const checkoutHref = `https://wa.me/573000000000?text=${encodeURIComponent(orderText)}`;
+
   return (
     <>
       <div className="eden-drawer-backdrop" onClick={cart.closeCart} />
@@ -119,11 +126,11 @@ export function CartDrawer() {
                 <span style={{ fontSize: 14, color: "var(--muted)" }}>Subtotal</span>
                 <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 24 }}>{cart.subtotalText}</span>
               </div>
-              <p style={{ fontSize: 12, color: "var(--muted)", margin: "0 0 16px" }}>Envío calculado al finalizar la compra.</p>
-              <a href="#" style={{ display: "block", textAlign: "center", padding: 17, background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>Finalizar compra</a>
+              <p style={{ fontSize: 12, color: "var(--muted)", margin: "0 0 16px" }}>Envío calculado al confirmar por WhatsApp.</p>
+              <a href={checkoutHref} target="_blank" rel="noopener noreferrer" style={{ display: "block", textAlign: "center", padding: 17, background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>Finalizar compra</a>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, marginTop: 14, fontSize: 11, letterSpacing: ".06em", color: "var(--muted)" }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
-                <span>Pago 100% seguro · Sistecrédito · Tarjeta · PSE</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
+                <span>Confirmas tu pedido directo con nosotros por WhatsApp</span>
               </div>
               <button type="button" onClick={cart.closeCart} style={{ width: "100%", marginTop: 8, padding: 14, background: "transparent", border: "none", cursor: "pointer", color: "var(--ink)", fontSize: 13, letterSpacing: ".06em", textTransform: "uppercase" }}>Seguir comprando</button>
             </div>
