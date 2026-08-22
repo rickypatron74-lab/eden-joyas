@@ -55,7 +55,9 @@
 // ─────────────────────────────────────────────────────────────
 export const IMAGES = {
   local1: "/images/manilla-1.jpg",
-  // Placeholders temporales (CDN externo) — reemplazar por fotografía propia.
+  local2: "/images/manilla-2.jpg",
+  local3: "/images/manilla-3.jpg",
+  // Placeholders temporales (CDN externo) — usados solo por el hero y la sección Historia, pendientes de fotografía propia.
   extA: "https://www.virzua.com/cdn/shop/files/pulserade7nudosparaparejasdeoro18k.jpg?width=1600",
   extB: "https://www.virzua.com/cdn/shop/files/Pulsera_3_Oros_Tejida_Balines_en_18k.webp?width=1600",
 } as const;

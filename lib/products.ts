@@ -22,7 +22,7 @@ export interface Product {
 
 export const FREE_SHIP = 150000;
 
-const { local1: U, extA: A, extB: B } = IMAGES;
+const { local1: U, local2: A, local3: B } = IMAGES;
 
 export const PRODUCTS: Product[] = [
   { id: "gancho", tier: "ESSENTIAL", name: "Gancho", priceNum: 89900, desc: "Tu entrada al universo EDEN.", longDesc: "La puerta de entrada a EDEN: tejido a mano con balines de oro 18k, pensada para no quitártela nunca.", gallery: [A, U, B] },
