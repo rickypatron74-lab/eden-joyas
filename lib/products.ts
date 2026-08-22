@@ -22,7 +22,7 @@ export interface Product {
 
 export const FREE_SHIP = 150000;
 
-const { local1: U, local2: A, local3: B, local4: C, local5: D } = IMAGES;
+const { local1: U, local2: A, local3: B, local4: C, local5: D, local6: E } = IMAGES;
 
 export const PRODUCTS: Product[] = [
   { id: "semilla", tier: "ESSENTIAL", name: "Semilla", priceNum: 89900, desc: "Tu entrada al universo EDEN.", longDesc: "La puerta de entrada a EDEN: tejido a mano con balines de oro 18k, pensada para no quitártela nunca.", gallery: [A, U, B] },
@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 479900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: [A, U, B] },
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con cuarzo rosa.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm, cuarzo rosa y dije de Oro 18K.", gallery: [B, U, A] },
   { id: "origen", tier: "PRIVÉ", name: "Origen", priceNum: 589900, desc: "Donde empieza todo EDEN.", longDesc: "El origen de EDEN: la pieza más completa de la colección, tejida a mano en oro 18k.", gallery: [U, B, A] },
-  { id: "vinculo", tier: "SIGNATURE", name: "Vínculo", priceNum: 349900, special: true, dije: true, desc: "Para dos: un dije, la misma historia.", longDesc: "Pensada para parejas: balines de oro 18k tejidos a mano con dije a juego, para llevar por separado lo que los une.", gallery: [C] },
+  { id: "vinculo", tier: "SIGNATURE", name: "Vínculo", priceNum: 349900, desc: "Para dos: cuentas rojas y doradas, la misma historia.", longDesc: "Pensada para parejas: balines de oro 18k y cuentas rojas tejidas a mano, para llevar por separado lo que los une.", gallery: [E] },
 ];
 
 export const TIER_META: Record<Tier, string> = {
