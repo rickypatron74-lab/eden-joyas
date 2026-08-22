@@ -34,7 +34,7 @@ export const PRODUCTS: Product[] = [
   { id: "aura", tier: "SIGNATURE", name: "Aura", priceNum: 329900, special: true, dije: true, desc: "Cordón rojo con medalla de San Benito.", longDesc: "Pieza icónica: cordón tejido en rojo con balines de oro 18k y medalla de San Benito en Oro 18K. Protección que se lleva puesta, todos los días.", gallery: [D] },
   { id: "pulso", tier: "SIGNATURE", name: "Pulso", priceNum: 379900, desc: "Ritmo y presencia en oro 18k.", longDesc: "Ritmo y presencia: tejido a mano en oro 18k, el pulso de la colección Signature.", gallery: [B, A, U] },
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 479900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: [A, U, B] },
-  { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con cuarzo rosa.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm, cuarzo rosa y dije de Oro 18K.", gallery: [B, U, A] },
+  { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con dije de Oro 18K.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm y dije de Oro 18K.", gallery: [B, U, A] },
   { id: "origen", tier: "PRIVÉ", name: "Origen", priceNum: 589900, desc: "Donde empieza todo EDEN.", longDesc: "El origen de EDEN: la pieza más completa de la colección, tejida a mano en oro 18k.", gallery: [U, B, A] },
   { id: "vinculo", tier: "SIGNATURE", name: "Vínculo", priceNum: 349900, desc: "Para dos: cuentas rojas y doradas, la misma historia.", longDesc: "Pensada para parejas: balines de oro 18k y cuentas rojas tejidas a mano, para llevar por separado lo que los une.", gallery: [E] },
 ];
@@ -53,7 +53,7 @@ export interface IconicMeta {
 }
 export const ICONIC_META: Record<string, IconicMeta> = {
   aura: { concept: "Protección que se lleva puesta. La pieza que te acompaña cada día.", materials: ["Cordón", "Rojo", "Medalla San Benito", "Dije Oro 18K"] },
-  siempre: { concept: "Emocional y sofisticada. Hecha para regalar y para recordar.", materials: ["Espiral premium", "Hilo borgoña", "Cuarzo rosa", "Dije Oro 18K"] },
+  siempre: { concept: "Emocional y sofisticada. Hecha para regalar y para recordar.", materials: ["Espiral premium", "Hilo borgoña", "Dije Oro 18K"] },
 };
 export const ICONIC_IDS = ["aura", "siempre"] as const;
 
