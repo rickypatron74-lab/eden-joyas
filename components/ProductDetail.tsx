@@ -6,7 +6,7 @@ import { useCart } from "./CartProvider";
 import { WishlistButton } from "./WishlistButton";
 import { ProductReviews } from "./ProductReviews";
 import { RECENTLY_VIEWED_KEY } from "./RecentlyViewed";
-import { fmt, cuotaFor, type Product } from "@/lib/products";
+import { fmt, type Product } from "@/lib/products";
 
 export function ProductDetail({ product, related }: { product: Product; related: Product[] }) {
   const cart = useCart();
@@ -64,7 +64,6 @@ export function ProductDetail({ product, related }: { product: Product; related:
                 <span style={{ fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--gold-deep)", background: "rgba(166,128,63,.12)", padding: "5px 11px", borderRadius: 999 }}>✦ Dije Oro 18K</span>
               )}
             </div>
-            <p style={{ fontSize: 13.5, color: "var(--gold-deep)", margin: "8px 0 0" }}>o {cuotaFor(product.priceNum)} con Sistecrédito</p>
             <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--muted)", margin: "22px 0 0", maxWidth: "46ch" }}>{product.longDesc}</p>
 
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 16, marginTop: 28 }}>

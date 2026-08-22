@@ -76,4 +76,3 @@ export const IG_POSTS = [
 // Helpers
 export const fmt = (n: number): string => "$" + n.toLocaleString("es-CO");
 export const getProduct = (id: string): Product | undefined => PRODUCTS.find((p) => p.id === id);
-export const cuotaFor = (n: number): string => "4 cuotas de " + fmt(Math.round(n / 4));

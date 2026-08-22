@@ -28,8 +28,8 @@ export default function HomePage() {
       <Nav />
       <PromoBar />
       <Hero />
-      <Manifesto />
       <Collection />
+      <Manifesto />
       <Iconics />
       <Historia />
       <Craft />
