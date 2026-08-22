@@ -12,7 +12,7 @@ import { useCart } from "@/components/CartProvider";
 import { PRODUCTS, fmt, SHIPPING_COST } from "@/lib/products";
 
 type Step = 1 | 2 | 3;
-type PayMethod = "tarjeta" | "sistecredito" | "contraentrega";
+type PayMethod = "tarjeta";
 
 interface ShipForm {
   name: string;
@@ -23,9 +23,7 @@ interface ShipForm {
 }
 
 const PAY_OPTIONS: { id: PayMethod; label: string; hint: string }[] = [
-  { id: "tarjeta", label: "Tarjeta débito/crédito", hint: "Coordinamos el cobro por WhatsApp" },
-  { id: "sistecredito", label: "Sistecrédito", hint: "Paga a cuotas" },
-  { id: "contraentrega", label: "Contraentrega", hint: "Pagas al recibir tu pedido" },
+  { id: "tarjeta", label: "Tarjeta débito/crédito", hint: "Visa, Mastercard y más" },
 ];
 
 export default function CheckoutPage() {
@@ -34,6 +32,8 @@ export default function CheckoutPage() {
   const [form, setForm] = useState<ShipForm>({ name: "", phone: "", address: "", city: "", notes: "" });
   const [pay, setPay] = useState<PayMethod>("tarjeta");
   const [triedStep2, setTriedStep2] = useState(false);
+  const [orderNumber, setOrderNumber] = useState("");
+  const [confirmedTotal, setConfirmedTotal] = useState(0);
 
   const resolved = cart.lines
     .map((l) => {
@@ -63,18 +63,12 @@ export default function CheckoutPage() {
     if (!hasErrors) setStep(3);
   };
 
-  const payLabel = PAY_OPTIONS.find((p) => p.id === pay)!.label;
-  const orderText =
-    "Hola, quiero confirmar mi pedido:\n\n" +
-    `${form.name}\n${form.phone}\n${form.address}, ${form.city}` +
-    (form.notes.trim() ? `\nNotas: ${form.notes}` : "") +
-    "\n\nProductos:\n" +
-    resolved.map((l) => `• ${l.product.name} x${l.qty} — ${l.lineTotal}`).join("\n") +
-    `\n\nSubtotal: ${fmt(cart.subtotal)}` +
-    `\nEnvío: ${shipping === 0 ? "Gratis" : fmt(shipping)}` +
-    `\nTotal: ${fmt(total)}` +
-    `\n\nMétodo de pago: ${payLabel}`;
-  const whatsappHref = `https://wa.me/573000000000?text=${encodeURIComponent(orderText)}`;
+  const confirmOrder = () => {
+    const num = "EDEN-" + Math.floor(100000 + Math.random() * 900000);
+    setConfirmedTotal(total);
+    setOrderNumber(num);
+    resolved.forEach((l) => cart.remove(l.id));
+  };
 
   const steps: { n: Step; label: string }[] = [
     { n: 1, label: "Carrito" },
@@ -90,7 +84,15 @@ export default function CheckoutPage() {
         <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
           <h1 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(30px,4vw,44px)", margin: "0 0 clamp(28px,4vw,40px)" }}>Checkout</h1>
 
-          {resolved.length === 0 ? (
+          {orderNumber ? (
+            <div className="checkout-step-in" style={{ textAlign: "center", padding: "48px 20px", maxWidth: 480, margin: "0 auto" }}>
+              <div style={{ width: 56, height: 56, borderRadius: "50%", background: "var(--deep)", color: "var(--cream)", display: "grid", placeContent: "center", fontSize: 26, margin: "0 auto 22px" }}>✓</div>
+              <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(26px,3.2vw,34px)", margin: "0 0 10px" }}>Pedido recibido</h2>
+              <p style={{ fontSize: 14, color: "var(--muted)", margin: "0 0 4px" }}>Folio {orderNumber} · Total {fmt(confirmedTotal)}</p>
+              <p style={{ fontSize: 14, lineHeight: 1.7, color: "var(--muted)", margin: "18px 0 30px" }}>Guardamos los datos de tu pedido. Nos pondremos en contacto contigo para coordinar el pago y el envío.</p>
+              <Link href="/#coleccion" className="btn-deep" style={{ display: "inline-block", padding: "15px 30px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase" }}>Seguir viendo la colección</Link>
+            </div>
+          ) : resolved.length === 0 ? (
             <div style={{ textAlign: "center", padding: "60px 20px" }}>
               <p style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 22, color: "var(--muted)", margin: "0 0 20px" }}>Tu carrito está vacío</p>
               <Link href="/#coleccion" className="btn-deep" style={{ display: "inline-block", padding: "15px 30px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase" }}>Ver la colección</Link>
@@ -195,7 +197,7 @@ export default function CheckoutPage() {
                       </div>
                       <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
                         <button type="button" onClick={() => setStep(2)} style={{ padding: "16px 26px", background: "transparent", border: "1px solid var(--line)", color: "var(--ink)", borderRadius: 999, fontSize: 13, letterSpacing: ".1em", textTransform: "uppercase", cursor: "pointer" }}>Atrás</button>
-                        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="btn-deep" style={{ flex: 1, textAlign: "center", padding: "16px 26px", background: "var(--deep)", color: "var(--cream)", borderRadius: 999, fontSize: 13, letterSpacing: ".1em", textTransform: "uppercase" }}>Confirmar pedido</a>
+                        <button type="button" onClick={confirmOrder} className="btn-deep" style={{ flex: 1, padding: "16px 26px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".1em", textTransform: "uppercase", cursor: "pointer" }}>Confirmar pedido</button>
                       </div>
                     </div>
                   )}
