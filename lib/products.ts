@@ -25,7 +25,7 @@ export const FREE_SHIP = 150000;
 const { local1: U, local2: A, local3: B, local4: C, local5: D } = IMAGES;
 
 export const PRODUCTS: Product[] = [
-  { id: "gancho", tier: "ESSENTIAL", name: "Gancho", priceNum: 89900, desc: "Tu entrada al universo EDEN.", longDesc: "La puerta de entrada a EDEN: tejido a mano con balines de oro 18k, pensada para no quitártela nunca.", gallery: [A, U, B] },
+  { id: "semilla", tier: "ESSENTIAL", name: "Semilla", priceNum: 89900, desc: "Tu entrada al universo EDEN.", longDesc: "La puerta de entrada a EDEN: tejido a mano con balines de oro 18k, pensada para no quitártela nunca.", gallery: [A, U, B] },
   { id: "esencia", tier: "ESSENTIAL", name: "Esencia", priceNum: 119900, desc: "Lo esencial, en oro 18k.", longDesc: "Lo esencial de EDEN: tejido a mano en oro 18k, sobrio y para todos los días.", gallery: [B, U, A] },
   { id: "alma", tier: "ESSENTIAL", name: "Alma", priceNum: 179900, desc: "Carácter en su forma más pura.", longDesc: "Una pieza con carácter: balines de oro 18k tejidos a mano, para llevar sola o en capas.", gallery: [U, A, B] },
   { id: "vertice", tier: "SIGNATURE", name: "Vértice", priceNum: 259900, desc: "El punto donde EDEN se define.", longDesc: "El corazón de la colección: tejido a mano en oro 18k, con la presencia justa.", gallery: [A, B, U] },
