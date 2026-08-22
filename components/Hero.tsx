@@ -45,9 +45,6 @@ export function Manifesto() {
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)", textAlign: "center" }}>
         <span data-reveal style={{ display: "inline-block", fontSize: 12, letterSpacing: ".28em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La libertad de llevarlo</span>
         <p data-reveal data-reveal-delay="140" style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(30px,5vw,56px)", lineHeight: 1.1, letterSpacing: "-.015em", margin: "26px 0 0", color: "var(--ink)", textWrap: "balance" }}>El oro que se usa. No el que se guarda.</p>
-        <p data-reveal data-reveal-delay="240" style={{ marginTop: 30, fontSize: 14.5, color: "var(--muted)", letterSpacing: ".01em" }}>
-          Sin boda ni herencia · Sin vender por gramos · Desde $150.000
-        </p>
       </div>
     </section>
   );
