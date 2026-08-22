@@ -17,6 +17,7 @@ export interface Product {
   gallery: string[];
   special?: boolean; // pieza icónica con dije de Oro 18K
   dije?: boolean;
+  featured?: boolean; // bestseller real — marcar manualmente, nunca inferir
   reviews?: { name: string; quote: string }[]; // reseñas reales de clientas — vacío hasta tener contenido real
 }
 
@@ -30,7 +31,7 @@ export const PRODUCTS: Product[] = [
   { id: "esencia", tier: "ESSENTIAL", name: "Esencia", priceNum: 119900, desc: "Lo esencial, en oro 18k.", longDesc: "Lo esencial de EDEN: tejido a mano en oro 18k, sobrio y para todos los días.", gallery: [B, U, A] },
   { id: "alma", tier: "ESSENTIAL", name: "Alma", priceNum: 179900, desc: "Carácter en su forma más pura.", longDesc: "Una pieza con carácter: balines de oro 18k tejidos a mano, para llevar sola o en capas.", gallery: [U, A, B] },
   { id: "vertice", tier: "SIGNATURE", name: "Vértice", priceNum: 259900, desc: "El punto donde EDEN se define.", longDesc: "El corazón de la colección: tejido a mano en oro 18k, con la presencia justa.", gallery: [A, B, U] },
-  { id: "aura", tier: "SIGNATURE", name: "Aura", priceNum: 329900, special: true, dije: true, desc: "Cordón rojo con medalla de San Benito.", longDesc: "Pieza icónica: cordón tejido en rojo con balines de oro 18k y medalla de San Benito en Oro 18K. Protección que se lleva puesta, todos los días.", gallery: [D] },
+  { id: "aura", tier: "SIGNATURE", name: "Aura", priceNum: 329900, special: true, dije: true, featured: true, desc: "Cordón rojo con medalla de San Benito.", longDesc: "Pieza icónica: cordón tejido en rojo con balines de oro 18k y medalla de San Benito en Oro 18K. Protección que se lleva puesta, todos los días.", gallery: [D] },
   { id: "pulso", tier: "SIGNATURE", name: "Pulso", priceNum: 379900, desc: "Ritmo y presencia en oro 18k.", longDesc: "Ritmo y presencia: tejido a mano en oro 18k, el pulso de la colección Signature.", gallery: [B, A, U] },
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 479900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: [A, U, B] },
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con cuarzo rosa.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm, cuarzo rosa y dije de Oro 18K.", gallery: [B, U, A] },
