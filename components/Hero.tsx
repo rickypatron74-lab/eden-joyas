@@ -41,7 +41,7 @@ export function Hero() {
 
 export function Manifesto() {
   return (
-    <section style={{ padding: "clamp(80px,11vw,160px) 0", background: "var(--cream)" }}>
+    <section style={{ padding: "clamp(44px,6vw,84px) 0", background: "var(--cream)" }}>
       <div style={{ maxWidth: 820, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)", textAlign: "center" }}>
         <span data-reveal style={{ display: "inline-block", fontSize: 12, letterSpacing: ".28em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La libertad de llevarlo</span>
         <p data-reveal data-reveal-delay="140" style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(30px,5vw,56px)", lineHeight: 1.1, letterSpacing: "-.015em", margin: "26px 0 0", color: "var(--ink)", textWrap: "balance" }}>El oro que se usa. No el que se guarda.</p>

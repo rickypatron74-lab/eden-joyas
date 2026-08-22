@@ -5,9 +5,9 @@ const TIER_ANCHOR: Record<Tier, string> = { ESSENTIAL: "essential", SIGNATURE: "
 
 export function Collection() {
   return (
-    <section id="coleccion" style={{ padding: "clamp(72px,10vw,130px) 0" }}>
+    <section id="coleccion" style={{ padding: "clamp(32px,5vw,64px) 0 clamp(72px,10vw,130px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
-        <div data-reveal style={{ textAlign: "center", maxWidth: 640, margin: "0 auto clamp(44px,6vw,72px)" }}>
+        <div data-reveal style={{ textAlign: "center", maxWidth: 640, margin: "0 auto clamp(28px,4vw,44px)" }}>
           <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La colección</span>
           <h2 style={{ fontFamily: "var(--serif)", fontWeight: 500, fontSize: "clamp(34px,4.6vw,58px)", lineHeight: 1.04, letterSpacing: "-.01em", margin: "14px 0 0" }}>Tres formas de llevar EDEN</h2>
           <p style={{ fontSize: 16, lineHeight: 1.7, color: "var(--muted)", margin: "16px 0 0" }}>De la puerta de entrada a la máxima expresión del Oro 18K.</p>
