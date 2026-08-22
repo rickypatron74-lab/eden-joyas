@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { PromoBar, Hero, Manifesto } from "@/components/Hero";
-import { Favorites } from "@/components/Favorites";
 import { Collection } from "@/components/Collection";
 import { Iconics } from "@/components/Iconics";
 import { Historia, Materiales } from "@/components/Story";
@@ -29,7 +28,6 @@ export default function HomePage() {
       <Nav />
       <PromoBar />
       <Hero />
-      <Favorites />
       <Collection />
       <Manifesto />
       <Iconics />

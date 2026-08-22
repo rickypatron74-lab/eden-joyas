@@ -13,12 +13,12 @@ export function ProductCard({ product }: { product: Product }) {
         {product.special && (
           <span style={{ position: "absolute", top: 12, left: 12, background: "var(--deep)", color: "var(--gold-soft)", fontSize: 10, letterSpacing: ".12em", textTransform: "uppercase", padding: "6px 12px", borderRadius: 999 }}>✦ Dije Oro 18K</span>
         )}
+        {product.featured && (
+          <span style={{ position: "absolute", top: 12, left: 12, display: "inline-flex", alignItems: "center", gap: 5, background: "var(--gold)", color: "var(--deep)", fontSize: 10.5, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", padding: "7px 13px", borderRadius: 999, boxShadow: "0 6px 16px -4px rgba(166,128,63,.6)" }}>★ Bestseller</span>
+        )}
         <WishlistButton id={product.id} style={{ position: "absolute", top: 10, right: 10 }} />
       </Link>
-      {product.featured && (
-        <span style={{ display: "block", marginTop: 16, fontSize: 10.5, letterSpacing: ".2em", textTransform: "uppercase", color: "var(--gold-deep)", fontWeight: 600 }}>Bestseller</span>
-      )}
-      <Link href={`/producto/${product.id}`} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 23, lineHeight: 1.1, color: "var(--ink)", margin: `${product.featured ? 6 : 16}px 0 0` }}>{product.name}</Link>
+      <Link href={`/producto/${product.id}`} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 23, lineHeight: 1.1, color: "var(--ink)", margin: "16px 0 0" }}>{product.name}</Link>
       <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginTop: 8 }}>
         <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 22, color: "var(--ink)" }}>{fmt(product.priceNum)}</span>
       </div>
