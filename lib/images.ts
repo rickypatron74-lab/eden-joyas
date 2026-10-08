@@ -58,7 +58,6 @@ export const IMAGES = {
   auraGeneral: "/images/aura-general.webp",
   auraDetalle: "/images/aura-detalle.webp",
   auraPuesta: "/images/aura-puesta.webp",
-  siempreGeneral: "/images/siempre-general.webp",
   historiaPoster: "/images/historia-poster.webp",
   ig1: "/images/ig-1.webp",
   ig2: "/images/ig-2.webp",
