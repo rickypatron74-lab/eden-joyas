@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "EDEN Joyas",
     title: "EDEN Joyas — El lujo de llevarlo",
     description: "Manillas tejidas a mano en Oro 18K.",
-    images: [{ url: "/images/manilla-1.jpg", width: 736, height: 736, alt: "Manilla EDEN en oro 18k" }],
+    images: [{ url: "/images/og-eden.webp", width: 1200, height: 630, alt: "Manilla EDEN en oro 18k" }],
   },
   twitter: { card: "summary_large_image", title: "EDEN Joyas — El lujo de llevarlo", description: "Manillas tejidas a mano en Oro 18K." },
 };

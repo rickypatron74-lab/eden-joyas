@@ -8,10 +8,10 @@ export function Historia() {
         <div data-reveal className="split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.05fr", gap: "clamp(40px,6vw,88px)", alignItems: "center" }}>
           {/* Editorial 5:6 — foto de marca/proceso (artesanía), no un plano de producto. */}
           <figure className="split-media eden-wash" style={{ position: "relative", margin: 0, borderRadius: "30% 70% 65% 35% / 45% 40% 60% 55%", overflow: "hidden", aspectRatio: "5/6", background: "var(--blush)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)" }}>
-            <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster={IMAGES.extB} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}>
+            <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster={IMAGES.historiaPoster} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}>
               <source src="/video/historia.mp4" type="video/mp4" />
             </video>
-            <img src={IMAGES.extB} alt="Manillas EDEN tejidas a mano en oro 18k" className="hero-poster-fallback" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+            <img src={IMAGES.historiaPoster} alt="Manillas EDEN tejidas a mano en oro 18k" className="hero-poster-fallback" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
           </figure>
           <div>
             <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>Nuestra historia</span>

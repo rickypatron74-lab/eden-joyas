@@ -60,6 +60,18 @@ export const IMAGES = {
   local4: "/images/manilla-pareja.avif",
   local5: "/images/aura-2.webp",
   local6: "/images/vinculo-2.png",
+  // Fotografía propia (sesión María Manillas, oct-2026)
+  auraGeneral: "/images/aura-general.webp",
+  auraDetalle: "/images/aura-detalle.webp",
+  auraPuesta: "/images/aura-puesta.webp",
+  siempreGeneral: "/images/siempre-general.webp",
+  historiaPoster: "/images/historia-poster.webp",
+  ig1: "/images/ig-1.webp",
+  ig2: "/images/ig-2.webp",
+  ig3: "/images/ig-3.webp",
+  ig4: "/images/ig-4.webp",
+  ig5: "/images/ig-5.webp",
+  ig6: "/images/ig-6.webp",
   // Placeholders temporales (CDN externo) — usados solo por el hero y la sección Historia, pendientes de fotografía propia.
   extA: "https://www.virzua.com/cdn/shop/files/pulserade7nudosparaparejasdeoro18k.jpg?width=1600",
   extB: "https://www.virzua.com/cdn/shop/files/Pulsera_3_Oros_Tejida_Balines_en_18k.webp?width=1600",
@@ -82,4 +94,4 @@ export const HERO_IMAGE: ArtDirectedImage = { src: HERO_SRC_HD, position: "cente
 export const HERO_IMAGE_MOBILE: ArtDirectedImage = { src: HERO_SRC_HD, position: "center" };
 
 // Colección permanente (banner horizontal de Sections.tsx).
-export const BANNER_IMAGE: ArtDirectedImage = { src: IMAGES.local1, position: "center 40%" };
+export const BANNER_IMAGE: ArtDirectedImage = { src: "/images/banner-coleccion.webp", position: "center" };
