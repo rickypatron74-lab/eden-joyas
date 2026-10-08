@@ -54,12 +54,6 @@
 // miniaturas de ProductDetail ya itera sobre `gallery` sin límite fijo.
 // ─────────────────────────────────────────────────────────────
 export const IMAGES = {
-  local1: "/images/manilla-1.jpg",
-  local2: "/images/manilla-2.jpg",
-  local3: "/images/manilla-3.jpg",
-  local4: "/images/manilla-pareja.avif",
-  local5: "/images/aura-2.webp",
-  local6: "/images/vinculo-2.png",
   // Fotografía propia (sesión María Manillas, oct-2026)
   auraGeneral: "/images/aura-general.webp",
   auraDetalle: "/images/aura-detalle.webp",
@@ -72,9 +66,6 @@ export const IMAGES = {
   ig4: "/images/ig-4.webp",
   ig5: "/images/ig-5.webp",
   ig6: "/images/ig-6.webp",
-  // Placeholders temporales (CDN externo) — usados solo por el hero y la sección Historia, pendientes de fotografía propia.
-  extA: "https://www.virzua.com/cdn/shop/files/pulserade7nudosparaparejasdeoro18k.jpg?width=1600",
-  extB: "https://www.virzua.com/cdn/shop/files/Pulsera_3_Oros_Tejida_Balines_en_18k.webp?width=1600",
 } as const;
 
 export interface ArtDirectedImage {
@@ -83,15 +74,6 @@ export interface ArtDirectedImage {
   /** object-position CSS — foco configurable sin tocar el componente. */
   position: string;
 }
-
-// Hero: una entrada por breakpoint. Hoy ambas apuntan al mismo placeholder
-// (en resolución elevada, ?width=2400, para verse nítido en pantallas grandes
-// y de alta densidad — object-fit:cover nunca distorsiona, solo recorta) —
-// al llegar la fotografía definitiva, reemplazar `src` (y `position` si el
-// encuadre lo requiere) de cada una por separado — Hero.tsx no cambia.
-const HERO_SRC_HD = IMAGES.extA.replace("width=1600", "width=2400");
-export const HERO_IMAGE: ArtDirectedImage = { src: HERO_SRC_HD, position: "center" };
-export const HERO_IMAGE_MOBILE: ArtDirectedImage = { src: HERO_SRC_HD, position: "center" };
 
 // Colección permanente (banner horizontal de Sections.tsx).
 export const BANNER_IMAGE: ArtDirectedImage = { src: "/images/banner-coleccion.webp", position: "center" };

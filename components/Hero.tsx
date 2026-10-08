@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { IMAGES } from "@/lib/images";
 
 export function Hero() {
   return (
@@ -17,7 +16,7 @@ export function Hero() {
         <source src="/video/hero.mp4" type="video/mp4" />
       </video>
       <img
-        src={IMAGES.local1}
+        src="/images/hero-fallback.webp"
         alt="Manilla EDEN tejida a mano en oro 18k"
         className="hero-poster-fallback"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}

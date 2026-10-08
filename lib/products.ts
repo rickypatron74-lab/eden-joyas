@@ -24,7 +24,7 @@ export interface Product {
 export const FREE_SHIP = 250000;
 export const SHIPPING_COST = 18000;
 
-const { local1: U, local2: A, local3: B, local4: C, local5: D, local6: E, auraGeneral, auraDetalle, auraPuesta, siempreGeneral, ig1, ig2, ig3, ig4, ig5, ig6 } = IMAGES;
+const { auraGeneral, auraDetalle, auraPuesta, siempreGeneral, ig1, ig2, ig3, ig4, ig5, ig6 } = IMAGES;
 
 export const PRODUCTS: Product[] = [
   { id: "semilla", tier: "ESSENTIAL", name: "Semilla", priceNum: 89900, desc: "Tu entrada al universo EDEN.", longDesc: "La puerta de entrada a EDEN: tejido a mano con balines de oro 18k, pensada para no quitártela nunca.", gallery: ["/images/semilla-1.webp", "/images/semilla-2.webp", "/images/semilla-3.webp"] },
@@ -36,7 +36,7 @@ export const PRODUCTS: Product[] = [
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 479900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: ["/images/eterna-1.webp", "/images/eterna-2.webp", "/images/eterna-3.webp"] },
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con dije de Oro 18K.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm y dije de Oro 18K.", gallery: [siempreGeneral] },
   { id: "origen", tier: "PRIVÉ", name: "Origen", priceNum: 589900, desc: "Donde empieza todo EDEN.", longDesc: "El origen de EDEN: la pieza más completa de la colección, tejida a mano en oro 18k.", gallery: ["/images/origen-1.webp", "/images/origen-2.webp", "/images/origen-3.webp"] },
-  { id: "vinculo", tier: "SIGNATURE", name: "Vínculo", priceNum: 349900, desc: "Para dos: cuentas rojas y doradas, la misma historia.", longDesc: "Pensada para parejas: balines de oro 18k y cuentas rojas tejidas a mano, para llevar por separado lo que los une.", gallery: [E] },
+  { id: "vinculo", tier: "SIGNATURE", name: "Vínculo", priceNum: 349900, desc: "Para dos: cuentas rojas y doradas, la misma historia.", longDesc: "Pensada para parejas: balines de oro 18k y cuentas rojas tejidas a mano, para llevar por separado lo que los une.", gallery: ["/images/vinculo-1.webp", "/images/vinculo-2.webp"] },
 ];
 
 export const TIER_META: Record<Tier, string> = {
