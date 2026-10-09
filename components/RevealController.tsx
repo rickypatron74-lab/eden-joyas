@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Reveal-on-scroll como mejora progresiva. El contenido es visible por
@@ -8,6 +9,10 @@ import { useEffect } from "react";
  * de modo que si el JS falla nada queda escondido.
  */
 export function RevealController() {
+  const pathname = usePathname();
+
+  // Re-ejecuta en cada cambio de ruta: el layout persiste al navegar, así que
+  // sin esto los [data-reveal] de la página a la que vuelves quedaban ocultos.
   useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (!els.length) return;
@@ -38,7 +43,26 @@ export function RevealController() {
 
     const failsafe = setTimeout(() => els.forEach(reveal), 2500);
     return () => { if (io) io.disconnect(); clearTimeout(failsafe); };
-  });
+  }, [pathname]);
+
+  // Scroll suave solo para anclas de la misma página. El `scroll-behavior: smooth`
+  // global rompía la restauración de scroll al volver con "atrás".
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement | null)?.closest?.("a");
+      if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      const href = a.getAttribute("href") || "";
+      const m = href.match(/^\/?#(.+)$/);
+      if (!m || (href.startsWith("/") && window.location.pathname !== "/")) return;
+      const target = document.getElementById(decodeURIComponent(m[1]));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", "#" + m[1]);
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
 
   return null;
 }

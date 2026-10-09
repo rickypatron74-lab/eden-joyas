@@ -16,7 +16,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; } /* el suave se hace por JS solo en anclas (ver RevealController) */
 body {
   margin: 0;
   background: var(--cream);
