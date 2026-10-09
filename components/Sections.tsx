@@ -97,6 +97,7 @@ export function Faq() {
 const MATCHES = [
   { tier: "ESSENTIAL", label: "Quiero algo sutil", href: "/#essential" },
   { tier: "SIGNATURE", label: "Quiero algo con presencia", href: "/#signature" },
+  { tier: "FE Y PROTECCIÓN", label: "Quiero algo con significado", href: "/#fe" },
   { tier: "PRIVÉ", label: "Quiero algo extraordinario", href: "/#prive" },
 ];
 
