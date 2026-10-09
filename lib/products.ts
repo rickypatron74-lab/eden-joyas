@@ -63,11 +63,14 @@ export interface IconicMeta {
 export const ICONIC_META: Record<string, IconicMeta> = {
   refugio: { badge: "Dije Oro 18K", concept: "Protección que se lleva puesta. La pieza que te acompaña cada día.", materials: ["Cordón", "Rojo", "Medalla San Benito", "Dije Oro 18K"] },
   siempre: { badge: "Dije Oro 18K", concept: "Emocional y sofisticada. Hecha para regalar y para recordar.", materials: ["Espiral premium", "Hilo borgoña", "Dije Oro 18K"] },
-  bendita: { badge: "Medalla", concept: "Bendita: la que se lleva puesta. Para los días en que quieres ir acompañada.", materials: ["Cordón", "Rojo", "Medalla Virgen de Guadalupe"] },
+  bendita: { badge: "Fe y protección", concept: "Bendita: la que se lleva puesta. Para los días en que quieres ir acompañada.", materials: ["Cordón", "Rojo", "Medalla Virgen de Guadalupe"] },
   milagrosa: { badge: "Medalla", concept: "La fe en forma de joya. Para quien lleva la medalla milagrosa siempre cerca.", materials: ["Cordón", "Rojo", "Medalla milagrosa en oro 18k"] },
+  esencia: { badge: "Essential", concept: "Lo esencial en oro 18k. Tan discreta y cómoda que no te la quitas nunca.", materials: ["Tejido beige", "Balín diamantado", "Oro 18k"] },
+  eterna: { badge: "Signature", concept: "Presencia serena, hecha para durar. La pieza que se queda contigo.", materials: ["Tejida a mano", "Oro 18k"] },
+  origen: { badge: "Privé", concept: "La más completa de la colección. Todo el carácter de EDEN en una sola pieza.", materials: ["Tejida a mano", "Oro 18k"] },
   gracia: { badge: "Cruz de oro", concept: "Fe en forma de joya. Para llevar sola o sumada a tus capas.", materials: ["Cuarzo morado", "Cruz de oro"] },
 };
-export const ICONIC_IDS = ["refugio", "bendita", "gracia"] as const;
+export const ICONIC_IDS = ["esencia", "eterna", "bendita", "origen"] as const; // las favoritas: una por categoría
 
 export const TESTIMONIALS = [
   { quote: "La llevo todos los días desde hace meses y sigue impecable. Elegante, cómoda y combina con todo.", name: "Valentina R.", meta: "Medellín · compra verificada" },
