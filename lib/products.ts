@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
   { id: "milagrosa", tier: "SIGNATURE", religious: true, name: "Milagrosa", priceNum: 415900, desc: "Cordón rojo con medalla milagrosa.", longDesc: "Cordón tejido a mano en rojo con la medalla milagrosa en oro 18k. Para llevar la fe puesta, todos los días.", gallery: ["/images/vertice-1.webp", "/images/vertice-2.webp", "/images/vertice-3.webp"] },
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 479900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: ["/images/eterna-1.webp"] },
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con dije de Oro 18K.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm y dije de Oro 18K.", gallery: ["/images/siempre-1.webp"] },
-  { id: "origen", tier: "PRIVÉ", name: "Origen", priceNum: 589900, desc: "Donde empieza todo EDEN.", longDesc: "El origen de EDEN: la pieza más completa de la colección, tejida a mano en oro 18k.", gallery: ["/images/origen-1.webp", "/images/origen-2.webp", "/images/origen-3.webp"] },
+  { id: "origen", tier: "PRIVÉ", name: "Origen", priceNum: 474900, desc: "Donde empieza todo EDEN.", longDesc: "El origen de EDEN: la pieza más completa de la colección, tejida a mano en oro 18k.", gallery: ["/images/origen-1.webp", "/images/origen-2.webp", "/images/origen-3.webp"] },
 ];
 
 export const TIER_META: Record<Tier, string> = {
