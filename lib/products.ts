@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
   { id: "esencia", tier: "ESSENTIAL", name: "Esencia", priceNum: 119900, featured: true, desc: "Lo esencial, en oro 18k.", longDesc: "Lo esencial de EDEN: tejido a mano en oro 18k, sobrio y para todos los días.", gallery: ["/images/esencia-1.webp", "/images/esencia-2.webp", "/images/esencia-3.webp"] },
   { id: "alma", tier: "ESSENTIAL", name: "Alma", priceNum: 179900, desc: "Carácter en su forma más pura.", longDesc: "Una pieza con carácter: balines de oro 18k tejidos a mano, para llevar sola o en capas.", gallery: ["/images/alma-1.webp", "/images/alma-2.webp"] },
   { id: "bendita", tier: "SIGNATURE", religious: true, name: "Bendita", priceNum: 259900, desc: "Cordón rojo con medalla de oro.", longDesc: "Cordón tejido en rojo con una medalla de oro. Bendita que se lleva puesta, todos los días.", gallery: ["/images/vertice-1.webp", "/images/vertice-2.webp", "/images/vertice-3.webp"] },
-  { id: "custodia", tier: "SIGNATURE", religious: true, name: "Custodia", priceNum: 329900, special: true, dije: true, desc: "Cordón rojo con medalla de San Benito.", longDesc: "Pieza icónica: cordón tejido en rojo con balines de oro 18k y medalla de San Benito en Oro 18K. Protección que se lleva puesta, todos los días.", gallery: [auraGeneral, auraDetalle, auraPuesta] },
+  { id: "refugio", tier: "SIGNATURE", religious: true, name: "Refugio", priceNum: 329900, special: true, dije: true, desc: "Cordón rojo con medalla de San Benito.", longDesc: "Pieza icónica: cordón tejido en rojo con balines de oro 18k y medalla de San Benito en Oro 18K. Protección que se lleva puesta, todos los días.", gallery: [auraGeneral, auraDetalle, auraPuesta] },
   { id: "gracia", tier: "SIGNATURE", religious: true, name: "Gracia", priceNum: 379900, desc: "Cristal rosado con cruz de oro.", longDesc: "Cuentas de cristal rosado con una cruz de oro, para llevar sola o en capas.", gallery: ["/images/pulso-1.webp", "/images/pulso-2.webp", "/images/pulso-3.webp"] },
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 479900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: ["/images/eterna-1.webp"] },
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 549900, special: true, dije: true, desc: "Espiral en hilo borgoña con dije de Oro 18K.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm y dije de Oro 18K.", gallery: ["/images/siempre-1.webp"] },
@@ -53,12 +53,12 @@ export interface IconicMeta {
   materials: string[];
 }
 export const ICONIC_META: Record<string, IconicMeta> = {
-  custodia: { badge: "Dije Oro 18K", concept: "Protección que se lleva puesta. La pieza que te acompaña cada día.", materials: ["Cordón", "Rojo", "Medalla San Benito", "Dije Oro 18K"] },
+  refugio: { badge: "Dije Oro 18K", concept: "Protección que se lleva puesta. La pieza que te acompaña cada día.", materials: ["Cordón", "Rojo", "Medalla San Benito", "Dije Oro 18K"] },
   siempre: { badge: "Dije Oro 18K", concept: "Emocional y sofisticada. Hecha para regalar y para recordar.", materials: ["Espiral premium", "Hilo borgoña", "Dije Oro 18K"] },
   bendita: { badge: "Medalla", concept: "Bendita: la que se lleva puesta. Para los días en que quieres ir acompañada.", materials: ["Cordón", "Rojo", "Medalla de oro"] },
   gracia: { badge: "Cruz de oro", concept: "Fe en forma de joya. Para llevar sola o sumada a tus capas.", materials: ["Cristal rosado", "Cruz de oro"] },
 };
-export const ICONIC_IDS = ["custodia", "bendita", "gracia"] as const;
+export const ICONIC_IDS = ["refugio", "bendita", "gracia"] as const;
 
 export const TESTIMONIALS = [
   { quote: "La llevo todos los días desde hace meses y sigue impecable. Elegante, cómoda y combina con todo.", name: "Valentina R.", meta: "Medellín · compra verificada" },
