@@ -14,7 +14,7 @@ export function Collection() {
         </div>
 
         {TIER_ORDER.map((tier, i) => {
-          const items = PRODUCTS.filter((p) => p.tier === tier);
+          const items = PRODUCTS.filter((p) => p.tier === tier && !p.religious);
           return (
             <div key={tier} id={TIER_ANCHOR[tier]} data-reveal style={{ marginBottom: "clamp(52px,7vw,88px)", scrollMarginTop: 90 }}>
               <div style={{ display: "flex", alignItems: "baseline", gap: 20, borderBottom: "1px solid var(--line)", paddingBottom: 22, marginBottom: "clamp(28px,3.6vw,44px)" }}>
@@ -32,6 +32,21 @@ export function Collection() {
             </div>
           );
         })}
+
+        <div id="fe" data-reveal style={{ marginBottom: "clamp(52px,7vw,88px)", scrollMarginTop: 90 }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 20, borderBottom: "1px solid var(--line)", paddingBottom: 22, marginBottom: "clamp(28px,3.6vw,44px)" }}>
+            <span style={{ fontFamily: "var(--serif)", fontSize: "clamp(26px,2.8vw,36px)", color: "var(--gold)", lineHeight: 1 }}>✦</span>
+            <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: "clamp(30px,3.6vw,46px)", lineHeight: 1, margin: 0, letterSpacing: ".02em" }}>FE Y PROTECCIÓN</h3>
+            <span style={{ marginLeft: "auto", fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "clamp(14px,1.4vw,17px)", color: "var(--muted)", textAlign: "right" }}>Para llevar la fe puesta.</span>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(340px,1fr))", gap: "clamp(28px,3.2vw,40px)" }}>
+            {PRODUCTS.filter((p) => p.religious).map((p, idx) => (
+              <div key={p.id} data-reveal data-reveal-delay={idx * 70}>
+                <ProductCard product={p} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
