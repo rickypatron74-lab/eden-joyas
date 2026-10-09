@@ -27,7 +27,7 @@ export const SHIPPING_COST = 18000;
 
 const { auraGeneral, auraDetalle, auraPuesta, ig1, ig2, ig3, ig4, ig5, ig6 } = IMAGES;
 
-export const PRODUCTS: Product[] = [
+const RAW_PRODUCTS: Product[] = [
   { id: "semilla", tier: "ESSENTIAL", name: "Semilla", priceNum: 89900, desc: "Tejido beige con balines de oro 18k.", longDesc: "Tejido a mano en tono beige con pequeños balines de oro 18k. La más discreta de la colección: se lleva todos los días y combina con todo.", gallery: ["/images/semilla-1.webp", "/images/semilla-2.webp", "/images/semilla-3.webp"] },
   { id: "esencia", tier: "ESSENTIAL", name: "Esencia", priceNum: 89900, featured: true, desc: "Tejido beige con balín diamantado.", longDesc: "Tejido a mano en tono beige con un balín de oro 18k diamantado que atrapa la luz. Sobria, delicada, para llevar sola o en capas.", gallery: ["/images/esencia-1.webp", "/images/esencia-2.webp", "/images/esencia-3.webp"] },
   { id: "alma", tier: "ESSENTIAL", name: "Alma", priceNum: 89900, desc: "Hilo rojo fino con balín de oro.", longDesc: "Hilo rojo fino, ligero y ajustable, con un balín de oro 18k al centro. Minimalista y con carácter, para llevar sola o sumada a tus capas.", gallery: ["/images/alma-1.webp", "/images/alma-2.webp"] },
@@ -39,6 +39,9 @@ export const PRODUCTS: Product[] = [
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 589900, special: true, dije: true, desc: "Espiral en hilo borgoña con dije de Oro 18K.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm y dije de Oro 18K.", gallery: ["/images/siempre-1.webp"] },
   { id: "origen", tier: "PRIVÉ", name: "Origen", priceNum: 474900, desc: "Donde empieza todo EDEN.", longDesc: "El origen de EDEN: la pieza más completa de la colección, tejida a mano en oro 18k.", gallery: ["/images/origen-1.webp", "/images/origen-2.webp", "/images/origen-3.webp"] },
 ];
+
+// Dentro de cada categoría, de menor a mayor precio.
+export const PRODUCTS: Product[] = [...RAW_PRODUCTS].sort((a, b) => a.priceNum - b.priceNum);
 
 export const TIER_META: Record<Tier, string> = {
   ESSENTIAL: "La puerta de entrada.",
