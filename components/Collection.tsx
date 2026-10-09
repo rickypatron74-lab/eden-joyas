@@ -5,7 +5,7 @@ const TIER_ANCHOR: Record<Tier, string> = { ESSENTIAL: "essential", SIGNATURE: "
 
 export function Collection() {
   return (
-    <section id="coleccion" style={{ padding: "clamp(20px,3vw,36px) 0 clamp(72px,10vw,130px)" }}>
+    <section id="coleccion" style={{ scrollMarginTop: 72, padding: "clamp(20px,3vw,36px) 0 clamp(72px,10vw,130px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <div data-reveal style={{ textAlign: "center", maxWidth: 640, margin: "0 auto clamp(28px,4vw,44px)" }}>
           <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>La colección</span>
