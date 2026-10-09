@@ -36,7 +36,7 @@ export function WishlistDrawer() {
                 <div>
                   <Link href={`/producto/${p.id}`} onClick={wishlist.closeWishlist} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)" }}>{p.name}</Link>
                   <div style={{ fontSize: 14, color: "var(--muted)", margin: "2px 0 10px" }}>{fmt(p.priceNum)}</div>
-                  <button type="button" onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", cursor: "pointer" }}>Agregar al carrito</button>
+                  <button type="button" disabled={p.soldOut} onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", cursor: p.soldOut ? "not-allowed" : "pointer", opacity: p.soldOut ? 0.55 : 1 }}>{p.soldOut ? "Agotado" : "Agregar al carrito"}</button>
                 </div>
                 <button type="button" onClick={() => wishlist.toggle(p.id)} style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--muted)", fontSize: 12, textDecoration: "underline", alignSelf: "start" }}>Quitar</button>
               </div>

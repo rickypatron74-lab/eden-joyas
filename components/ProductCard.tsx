@@ -16,6 +16,9 @@ export function ProductCard({ product }: { product: Product }) {
         {product.featured && (
           <span style={{ position: "absolute", top: 12, left: 12, display: "inline-flex", alignItems: "center", gap: 5, background: "var(--gold)", color: "var(--deep)", fontSize: 10.5, fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", padding: "7px 13px", borderRadius: 999, boxShadow: "0 6px 16px -4px rgba(166,128,63,.6)" }}>★ Bestseller</span>
         )}
+        {product.soldOut && (
+          <span style={{ position: "absolute", bottom: 12, left: 12, background: "var(--deep)", color: "var(--cream)", fontSize: 11, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", padding: "7px 14px", borderRadius: 999 }}>Agotado</span>
+        )}
         <WishlistButton id={product.id} style={{ position: "absolute", top: 10, right: 10 }} />
       </Link>
       <Link href={`/producto/${product.id}`} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 23, lineHeight: 1.1, color: "var(--ink)", margin: "16px 0 0" }}>{product.name}</Link>

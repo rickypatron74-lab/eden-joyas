@@ -34,7 +34,7 @@ export function Iconics() {
                 <span style={{ fontSize: 12.5, letterSpacing: ".06em", color: "var(--ink)", background: "var(--sand)", padding: "9px 17px", borderRadius: 999 }}>{it.materialsText}</span>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 30 }}>
-                <button type="button" onClick={() => cart.add(it.id, 1)} className="btn-deep" style={{ display: "inline-flex", alignItems: "center", padding: "16px 32px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
+                <button type="button" disabled={!!getProduct(it.id)?.soldOut} onClick={() => cart.add(it.id, 1)} className="btn-deep" style={{ display: "inline-flex", alignItems: "center", padding: "16px 32px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: getProduct(it.id)?.soldOut ? "not-allowed" : "pointer", opacity: getProduct(it.id)?.soldOut ? 0.55 : 1 }}>{getProduct(it.id)?.soldOut ? "Agotado" : "Añadir al carrito"}</button>
                 <Link href={`/producto/${it.id}`} className="btn-ghost" style={{ display: "inline-flex", alignItems: "center", padding: "16px 30px", background: "transparent", color: "var(--ink)", border: "1px solid var(--line)", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase" }}>Ver pieza</Link>
               </div>
             </div>

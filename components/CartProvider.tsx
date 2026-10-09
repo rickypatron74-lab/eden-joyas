@@ -40,6 +40,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const add = useCallback((id: string, qty = 1) => {
+    if (PRODUCTS.find((p) => p.id === id)?.soldOut) return; // agotado
     setLines((prev) => {
       const next = prev.slice();
       const line = next.find((l) => l.id === id);

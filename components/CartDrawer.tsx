@@ -47,7 +47,7 @@ export function CartDrawer() {
                         <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 15, color: "var(--ink)" }}>{p.name}</div>
                         <div style={{ fontSize: 13, color: "var(--muted)" }}>{fmt(p.priceNum)}</div>
                       </div>
-                      <button type="button" onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "transparent", border: "1px solid var(--line)", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink)", cursor: "pointer" }}>Agregar</button>
+                      <button type="button" disabled={p.soldOut} onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "transparent", border: "1px solid var(--line)", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink)", cursor: p.soldOut ? "not-allowed" : "pointer", opacity: p.soldOut ? 0.55 : 1 }}>{p.soldOut ? "Agotado" : "Agregar"}</button>
                     </div>
                   ))}
                 </div>
@@ -106,7 +106,7 @@ export function CartDrawer() {
                           <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 15, color: "var(--ink)" }}>{p.name}</div>
                           <div style={{ fontSize: 13, color: "var(--muted)" }}>{fmt(p.priceNum)}</div>
                         </div>
-                        <button type="button" onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "transparent", border: "1px solid var(--line)", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink)", cursor: "pointer" }}>Agregar</button>
+                        <button type="button" disabled={p.soldOut} onClick={() => cart.add(p.id, 1)} style={{ padding: "8px 14px", background: "transparent", border: "1px solid var(--line)", borderRadius: 999, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: "var(--ink)", cursor: p.soldOut ? "not-allowed" : "pointer", opacity: p.soldOut ? 0.55 : 1 }}>{p.soldOut ? "Agotado" : "Agregar"}</button>
                       </div>
                     ))}
                   </div>

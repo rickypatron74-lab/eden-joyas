@@ -72,7 +72,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
                 <span style={{ minWidth: 34, textAlign: "center", fontSize: 16, fontWeight: 600 }}>{qty}</span>
                 <button type="button" onClick={() => setQty((q) => q + 1)} aria-label="Más">+</button>
               </div>
-              <button type="button" onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, minWidth: 200, padding: "17px 34px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
+              <button type="button" disabled={product.soldOut} onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, minWidth: 200, padding: "17px 34px", background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".14em", textTransform: "uppercase", cursor: product.soldOut ? "not-allowed" : "pointer", opacity: product.soldOut ? 0.55 : 1 }}>{product.soldOut ? "Agotado" : "Añadir al carrito"}</button>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 14, marginTop: 30, paddingTop: 26, borderTop: "1px solid var(--line)", fontSize: 13, color: "var(--muted)" }}>
@@ -107,7 +107,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
           <div style={{ fontSize: 11, color: "var(--muted)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{product.name}</div>
           <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 20, color: "var(--ink)" }}>{fmt(product.priceNum)}</div>
         </div>
-        <button type="button" onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, textAlign: "center", padding: 15, background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer" }}>Añadir al carrito</button>
+        <button type="button" disabled={product.soldOut} onClick={() => cart.add(product.id, qty)} className="btn-deep" style={{ flex: 1, textAlign: "center", padding: 15, background: "var(--deep)", color: "var(--cream)", border: "none", borderRadius: 999, fontSize: 13, letterSpacing: ".12em", textTransform: "uppercase", cursor: product.soldOut ? "not-allowed" : "pointer", opacity: product.soldOut ? 0.55 : 1 }}>{product.soldOut ? "Agotado" : "Añadir al carrito"}</button>
       </div>
 
       {zoomOpen && (

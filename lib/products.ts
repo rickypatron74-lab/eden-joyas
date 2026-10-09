@@ -18,6 +18,7 @@ export interface Product {
   religious?: boolean; // línea "Fe y protección": va en su propia categoría, fuera de los tiers
   special?: boolean; // pieza icónica con dije de Oro 18K
   dije?: boolean;
+  soldOut?: boolean; // agotado: no se puede agregar al carrito
   featured?: boolean; // bestseller real — marcar manualmente, nunca inferir
   reviews?: { name: string; quote: string }[]; // reseñas reales de clientas — vacío hasta tener contenido real
 }
@@ -33,7 +34,7 @@ const RAW_PRODUCTS: Product[] = [
   { id: "semilla", tier: "ESSENTIAL", name: "Semilla", priceNum: 89900, desc: "Tejido beige con balines de oro 18k.", longDesc: "Tejido a mano en tono beige con pequeños balines de oro 18k. La más discreta de la colección: se lleva todos los días y combina con todo.", gallery: ["/images/semilla-1.webp", "/images/semilla-2.webp", "/images/semilla-3.webp"] },
   { id: "bendita", tier: "SIGNATURE", religious: true, name: "Bendita", priceNum: 259900, desc: "Cordón rojo con medalla de la Virgen de Guadalupe.", longDesc: "Cordón tejido a mano en rojo con una medalla de la Virgen de Guadalupe en oro 18k. Bendita que se lleva puesta, todos los días.", gallery: [auraPuesta] },
   { id: "refugio", tier: "SIGNATURE", religious: true, name: "Refugio", priceNum: 329900, special: true, dije: true, desc: "Cordón rojo con medalla de San Benito.", longDesc: "Pieza icónica: cordón tejido en rojo con balines de oro 18k y medalla de San Benito en Oro 18K. Protección que se lleva puesta, todos los días.", gallery: [auraGeneral, auraDetalle] },
-  { id: "gracia", tier: "SIGNATURE", religious: true, name: "Gracia", priceNum: 495900, desc: "Cuarzo morado con cruz de oro.", longDesc: "Cuentas de cuarzo morado con una cruz de oro, hecha a mano, para llevar sola o en capas.", gallery: ["/images/pulso-1.webp", "/images/pulso-2.webp", "/images/pulso-3.webp"] },
+  { id: "gracia", tier: "SIGNATURE", religious: true, name: "Gracia", priceNum: 495900, soldOut: true, desc: "Cuarzo morado con cruz de oro.", longDesc: "Cuentas de cuarzo morado con una cruz de oro, hecha a mano, para llevar sola o en capas.", gallery: ["/images/pulso-1.webp", "/images/pulso-2.webp", "/images/pulso-3.webp"] },
   { id: "milagrosa", tier: "SIGNATURE", religious: true, name: "Milagrosa", priceNum: 429900, desc: "Cordón rojo con medalla milagrosa.", longDesc: "Cordón tejido a mano en rojo con la medalla milagrosa en oro 18k. Para llevar la fe puesta, todos los días.", gallery: ["/images/vertice-1.webp", "/images/vertice-2.webp", "/images/vertice-3.webp"] },
   { id: "eterna", tier: "PRIVÉ", name: "Eterna", priceNum: 299900, desc: "Lujo accesible que no caduca.", longDesc: "Colección Privé: la máxima expresión de EDEN, tejida a mano en oro 18k.", gallery: ["/images/eterna-1.webp"] },
   { id: "siempre", tier: "PRIVÉ", name: "Siempre", priceNum: 589900, special: true, dije: true, desc: "Espiral en hilo borgoña con dije de Oro 18K.", longDesc: "Pieza emocional, hecha para regalar: espiral premium en hilo borgoña, balines de 6 × 5 mm y dije de Oro 18K.", gallery: ["/images/siempre-1.webp"] },
