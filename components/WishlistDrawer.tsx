@@ -31,7 +31,7 @@ export function WishlistDrawer() {
             {items.map((p) => (
               <div key={p.id} style={{ display: "grid", gridTemplateColumns: "74px 1fr auto", gap: 16, alignItems: "center", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
                 <Link href={`/producto/${p.id}`} onClick={wishlist.closeWishlist} style={{ borderRadius: 14, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-                  <img src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                  <img decoding="async" src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                 </Link>
                 <div>
                   <Link href={`/producto/${p.id}`} onClick={wishlist.closeWishlist} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)" }}>{p.name}</Link>

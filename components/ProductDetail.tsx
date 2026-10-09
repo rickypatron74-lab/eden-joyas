@@ -39,13 +39,13 @@ export function ProductDetail({ product, related }: { product: Product; related:
           <div>
             {/* Imagen principal PDP — 1:1 fijo. product.gallery[0..2]: 1) plano general, 2) detalle/textura, 3) puesta (lifestyle). Click para ampliar (zoom). */}
             <div className="eden-wash" style={{ position: "relative", borderRadius: 26, overflow: "hidden", aspectRatio: "1", background: "var(--sand)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)", cursor: "zoom-in" }} onClick={() => setZoomOpen(true)}>
-              <img src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+              <img decoding="async" src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
               <WishlistButton id={product.id} style={{ position: "absolute", top: 14, right: 14 }} />
             </div>
             <div style={{ display: "flex", gap: 12, marginTop: 14 }}>
               {product.gallery.map((src, i) => (
                 <button key={i} type="button" onClick={() => setGi(i)} style={{ flex: 1, aspectRatio: "1", borderRadius: 14, overflow: "hidden", border: `2px solid ${i === gi ? "var(--deep)" : "var(--line)"}`, background: "var(--sand)", cursor: "pointer", padding: 0 }}>
-                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                  <img decoding="async" src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                 </button>
               ))}
             </div>
@@ -92,7 +92,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
             {related.map((r) => (
               <Link key={r.id} href={`/producto/${r.id}`} style={{ display: "flex", flexDirection: "column", color: "var(--ink)" }}>
                 <div className="eden-zoom" style={{ borderRadius: 22, overflow: "hidden", aspectRatio: "4/5", background: "var(--sand)" }}>
-                  <img src={r.gallery[0]} alt={r.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
+                  <img decoding="async" src={r.gallery[0]} alt={r.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
                 </div>
                 <h3 style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 21, margin: "14px 0 0" }}>{r.name}</h3>
                 <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)", marginTop: 6 }}>{fmt(r.priceNum)}</span>
@@ -112,7 +112,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
 
       {zoomOpen && (
         <div onClick={() => setZoomOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 80, background: "rgba(42,36,32,.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, cursor: "zoom-out" }}>
-          <img src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ maxWidth: "92vw", maxHeight: "88vh", objectFit: "contain", borderRadius: 8 }} />
+          <img decoding="async" src={product.gallery[gi] || product.gallery[0]} alt={product.name} style={{ maxWidth: "92vw", maxHeight: "88vh", objectFit: "contain", borderRadius: 8 }} />
           <button type="button" onClick={() => setZoomOpen(false)} aria-label="Cerrar" style={{ position: "absolute", top: 20, right: 20, width: 44, height: 44, borderRadius: 999, border: "1px solid rgba(250,248,245,.4)", background: "rgba(250,248,245,.1)", color: "var(--cream)", fontSize: 18, cursor: "pointer" }}>✕</button>
         </div>
       )}

@@ -131,7 +131,7 @@ export default function CheckoutPage() {
                       {resolved.map((l) => (
                         <div key={l.id} style={{ display: "grid", gridTemplateColumns: "84px 1fr auto", gap: 16, alignItems: "center", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
                           <Link href={`/producto/${l.id}`} style={{ borderRadius: 14, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-                            <img src={l.product.gallery[0]} alt={l.product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                            <img decoding="async" src={l.product.gallery[0]} alt={l.product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                           </Link>
                           <div>
                             <Link href={`/producto/${l.id}`} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)" }}>{l.product.name}</Link>

@@ -17,6 +17,8 @@ export function Hero() {
       </video>
       <img
         src="/images/hero-fallback.webp"
+        fetchPriority="high"
+        decoding="async"
         alt="Manilla EDEN tejida a mano en oro 18k"
         className="hero-poster-fallback"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}

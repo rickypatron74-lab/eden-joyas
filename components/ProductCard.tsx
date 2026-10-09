@@ -8,8 +8,8 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="card-lift" style={{ display: "flex", flexDirection: "column" }}>
       <Link href={`/producto/${product.id}`} className="card-hover-swap" style={{ position: "relative", borderRadius: 22, overflow: "hidden", aspectRatio: "3/4", background: "var(--sand)", display: "block" }}>
-        <img src={product.gallery[0]} alt={`${product.name} — manilla EDEN en oro 18k`} className="img-primary" loading="lazy" />
-        {secondImage && <img src={secondImage} alt="" className="img-secondary" loading="lazy" aria-hidden="true" />}
+        <img decoding="async" src={product.gallery[0]} alt={`${product.name} — manilla EDEN en oro 18k`} className="img-primary" loading="lazy" />
+        {secondImage && <img decoding="async" src={secondImage} alt="" className="img-secondary" loading="lazy" aria-hidden="true" />}
         {product.special && (
           <span style={{ position: "absolute", top: 12, left: 12, background: "var(--deep)", color: "var(--gold-soft)", fontSize: 10, letterSpacing: ".12em", textTransform: "uppercase", padding: "6px 12px", borderRadius: 999 }}>✦ Dije Oro 18K</span>
         )}

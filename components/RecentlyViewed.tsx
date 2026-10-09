@@ -27,7 +27,7 @@ export function RecentlyViewed() {
           {items.map((p) => (
             <Link key={p.id} href={`/producto/${p.id}`} style={{ display: "flex", flexDirection: "column", color: "var(--ink)" }}>
               <div className="eden-zoom" style={{ borderRadius: 18, overflow: "hidden", aspectRatio: "4/5", background: "var(--sand)" }}>
-                <img src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
+                <img decoding="async" src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
               </div>
               <span style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 17, margin: "10px 0 0" }}>{p.name}</span>
               <span style={{ fontSize: 14, color: "var(--muted)", marginTop: 2 }}>{fmt(p.priceNum)}</span>

@@ -41,7 +41,7 @@ export function CartDrawer() {
                   {suggestions.map((p) => (
                     <div key={p.id} style={{ display: "grid", gridTemplateColumns: "56px 1fr auto", gap: 12, alignItems: "center" }}>
                       <Link href={`/producto/${p.id}`} onClick={cart.closeCart} style={{ borderRadius: 10, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-                        <img src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                        <img decoding="async" src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                       </Link>
                       <div>
                         <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 15, color: "var(--ink)" }}>{p.name}</div>
@@ -75,7 +75,7 @@ export function CartDrawer() {
               {resolved.map((l) => (
                 <div key={l.id} style={{ display: "grid", gridTemplateColumns: "74px 1fr auto", gap: 16, alignItems: "center", padding: "18px 0", borderBottom: "1px solid var(--line)" }}>
                   <Link href={`/producto/${l.id}`} onClick={cart.closeCart} style={{ borderRadius: 14, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-                    <img src={l.product.gallery[0]} alt={l.product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                    <img decoding="async" src={l.product.gallery[0]} alt={l.product.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                   </Link>
                   <div>
                     <Link href={`/producto/${l.id}`} onClick={cart.closeCart} style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 18, color: "var(--ink)" }}>{l.product.name}</Link>
@@ -100,7 +100,7 @@ export function CartDrawer() {
                     {suggestions.map((p) => (
                       <div key={p.id} style={{ display: "grid", gridTemplateColumns: "56px 1fr auto", gap: 12, alignItems: "center" }}>
                         <Link href={`/producto/${p.id}`} onClick={cart.closeCart} style={{ borderRadius: 10, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-                          <img src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                          <img decoding="async" src={p.gallery[0]} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
                         </Link>
                         <div>
                           <div style={{ fontFamily: "var(--serif)", fontWeight: 600, fontSize: 15, color: "var(--ink)" }}>{p.name}</div>

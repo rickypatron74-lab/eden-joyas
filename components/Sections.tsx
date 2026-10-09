@@ -6,7 +6,7 @@ export function PermanentBanner() {
   return (
     // Full-bleed horizontal, sin aspect-ratio fijo (min-height clamp 380–560px). Lifestyle/mood, foco configurable desde lib/images.ts (BANNER_IMAGE).
     <section style={{ position: "relative", minHeight: "clamp(380px,58vw,560px)", display: "grid", alignItems: "end", overflow: "hidden" }}>
-      <img src={BANNER_IMAGE.src} alt="Manilla EDEN tejida a mano en oro 18k" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: BANNER_IMAGE.position, filter: "saturate(.95) brightness(.9)" }} loading="lazy" />
+      <img decoding="async" src={BANNER_IMAGE.src} alt="Manilla EDEN tejida a mano en oro 18k" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: BANNER_IMAGE.position, filter: "saturate(.95) brightness(.9)" }} loading="lazy" />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(42,36,32,.1),rgba(42,36,32,.62))" }} />
       <div style={{ position: "relative", maxWidth: 1180, width: "100%", margin: "0 auto", padding: "clamp(36px,6vw,72px) clamp(20px,5vw,64px)" }}>
         <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--cream)", opacity: 0.85, fontWeight: 600 }}>Colección permanente</span>
@@ -60,7 +60,7 @@ export function Instagram() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: "clamp(10px,1.4vw,18px)" }}>
           {IG_POSTS.map((p) => (
             <div key={p.id} className="eden-wash eden-zoom" style={{ borderRadius: 16, overflow: "hidden", aspectRatio: "1", background: "var(--sand)" }}>
-              <img src={p.img} alt="EDEN Joyas en Instagram" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
+              <img decoding="async" src={p.img} alt="EDEN Joyas en Instagram" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} loading="lazy" />
             </div>
           ))}
         </div>
