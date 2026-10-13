@@ -21,7 +21,7 @@ const figtree = Figtree({
   variable: "--font-body",
 });
 
-const SITE = "https://edenjoyas.com"; // TODO: dominio real
+const SITE = "https://www.edenjoyas.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

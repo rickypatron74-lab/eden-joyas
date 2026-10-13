@@ -45,7 +45,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       priceCurrency: "COP",
       price: product.priceNum,
       availability: "https://schema.org/InStock",
-      url: `https://edenjoyas.com/producto/${product.id}`,
+      url: `https://www.edenjoyas.co/producto/${product.id}`,
     },
   };
 

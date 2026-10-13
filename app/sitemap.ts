@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { PRODUCTS } from "@/lib/products";
 
-const SITE = "https://edenjoyas.com"; // TODO: dominio real
+const SITE = "https://www.edenjoyas.co";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const products = PRODUCTS.map((p) => ({
