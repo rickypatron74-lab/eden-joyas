@@ -7,10 +7,10 @@ export function Historia() {
     <section id="historia" style={{ padding: "clamp(20px,4vw,48px) 0 clamp(72px,10vw,130px)" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 clamp(20px,5vw,64px)" }}>
         <div data-reveal className="split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.05fr", gap: "clamp(40px,6vw,88px)", alignItems: "center" }}>
-          {/* Animación del logo (16:9) — el póster es el primer fotograma del video para que no aparezca otra imagen debajo. */}
-          <figure className="split-media eden-wash" style={{ position: "relative", margin: 0, borderRadius: 28, overflow: "hidden", aspectRatio: "16/9", background: "var(--blush)", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)" }}>
-            <LazyVideo className="hero-video" src="/video/historia.mp4" poster={IMAGES.historiaPoster} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-            <img decoding="async" src={IMAGES.historiaPoster} alt="Manillas EDEN tejidas a mano en oro 18k" className="hero-poster-fallback" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+          {/* Animación del logo (video 16:9 dentro del recuadro orgánico; fondo igual al del video para que se funda) — el póster es el primer fotograma del video para que no aparezca otra imagen debajo. */}
+          <figure className="split-media eden-wash" style={{ position: "relative", margin: 0, borderRadius: "30% 70% 65% 35% / 45% 40% 60% 55%", overflow: "hidden", aspectRatio: "1/1", background: "#1e3d3c", boxShadow: "0 30px 64px -34px rgba(42,36,32,.38)" }}>
+            <LazyVideo className="hero-video" src="/video/historia.mp4" poster={IMAGES.historiaPoster} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 78%, transparent 100%)", maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 78%, transparent 100%)" }} />
+            <img decoding="async" src={IMAGES.historiaPoster} alt="Manillas EDEN tejidas a mano en oro 18k" className="hero-poster-fallback" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 78%, transparent 100%)", maskImage: "radial-gradient(ellipse 50% 50% at 50% 50%, #000 78%, transparent 100%)" }} />
           </figure>
           <div>
             <span style={{ fontSize: 12, letterSpacing: ".26em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>Nuestra historia</span>
